@@ -1,8 +1,11 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://World/OverworldPlayer.tscn" type="PackedScene" id=1]
+[ext_resource path="res://World/GrassBackground.tscn" type="PackedScene" id=2]
 
 [node name="Town" type="Node2D"]
 
 [node name="OverworldPlayer" parent="." instance=ExtResource( 1 )]
-position = Vector2( 146, 95 )
+position = Vector2( 153, 82 )
+
+[node name="GrassBackground" parent="." instance=ExtResource( 2 )]

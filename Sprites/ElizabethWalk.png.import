@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ElizabethWalk.png-41f228d1fc12e7acc9a296c03d5269b6.stex"
+path="res://.import/ElizabethWalk.png-cacd5d9f357a8a2de9d81c9a3ddabe10.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ElizabethWalk.png"
-dest_files=[ "res://.import/ElizabethWalk.png-41f228d1fc12e7acc9a296c03d5269b6.stex" ]
+source_file="res://Sprites/ElizabethWalk.png"
+dest_files=[ "res://.import/ElizabethWalk.png-cacd5d9f357a8a2de9d81c9a3ddabe10.stex" ]
 
 [params]
 
