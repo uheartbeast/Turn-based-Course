@@ -14,6 +14,10 @@ config/name="Turn-based Course"
 run/main_scene="res://World/Town.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+SceneStack="*res://SceneStack.gd"
+
 [display]
 
 window/size/width=320
