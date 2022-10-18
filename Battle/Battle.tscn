@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Battle/Battle.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Sky.png" type="Texture" id=2]
@@ -9,6 +9,37 @@
 [ext_resource path="res://Sprites/BattleGrassFront.png" type="Texture" id=7]
 [ext_resource path="res://Sprites/BattleGrassForeground.png" type="Texture" id=8]
 [ext_resource path="res://Sprites/BattleTreesForeground.png" type="Texture" id=9]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Pan"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5, 2 ),
+"transitions": PoolRealArray( 0.5, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -160, 90 ), Vector2( 160, 90 ), Vector2( 160, 90 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -160, 90 ) ]
+}
 
 [node name="Battle" type="Node2D"]
 script = ExtResource( 1 )
@@ -23,7 +54,7 @@ texture = ExtResource( 2 )
 centered = false
 
 [node name="MountainsLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_mirroring = Vector2( 320, 0 )
+motion_mirroring = Vector2( 400, 0 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/MountainsLayer"]
 texture = ExtResource( 3 )
@@ -72,3 +103,12 @@ visible = false
 [node name="Sprite" type="Sprite" parent="ParallaxForeground/TreeForgroundLayer"]
 texture = ExtResource( 9 )
 centered = false
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( -160, 90 )
+current = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Pan"
+anims/Pan = SubResource( 1 )
+anims/RESET = SubResource( 2 )
