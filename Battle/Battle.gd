@@ -19,7 +19,7 @@ func _unhandled_input(event : InputEvent) -> void:
 
 func _on_ally_turn_started() -> void:
 	print("Ally turn started")
-	yield(player_battle_unit.melee_attack(), "completed")
+	yield(player_battle_unit.melee_attack(enemy_battle_unit), "completed")
 	turnManager.advance_turn()
 
 func _on_enemy_turn_started() -> void:
