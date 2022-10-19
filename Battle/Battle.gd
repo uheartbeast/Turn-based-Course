@@ -19,14 +19,12 @@ func _unhandled_input(event : InputEvent) -> void:
 
 func _on_ally_turn_started() -> void:
 	print("Ally turn started")
-	player_battle_unit.melee_attack()
-	timer.start(1.0)
-	yield(timer, "timeout")
+	yield(player_battle_unit.melee_attack(), "completed")
 	turnManager.advance_turn()
 
 func _on_enemy_turn_started() -> void:
 	print("Enemy turn started")
-	enemy_battle_unit.melee_attack()
+#	enemy_battle_unit.melee_attack()
 	timer.start(1.0)
 	yield(timer, "timeout")
 	turnManager.advance_turn()
