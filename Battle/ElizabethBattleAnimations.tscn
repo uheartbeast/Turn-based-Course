@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Sprites/ElizabethBattle.png" type="Texture" id=1]
+[ext_resource path="res://Battle/BattleAnimations.gd" type="Script" id=2]
 
 [sub_resource type="Animation" id=3]
 resource_name = "Approach"
@@ -86,9 +87,11 @@ tracks/0/keys = {
 position = Vector2( 25, -51 )
 texture = ExtResource( 1 )
 hframes = 36
+script = ExtResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Idle"
+playback_speed = 1.2
 anims/Approach = SubResource( 3 )
 anims/Idle = SubResource( 1 )
 anims/Melee = SubResource( 4 )

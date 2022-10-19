@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Sprite",
+"class": "BattleAnimations",
+"language": "GDScript",
+"path": "res://Battle/BattleAnimations.gd"
+}, {
 "base": "Node2D",
 "class": "BattleUnit",
 "language": "GDScript",
@@ -20,6 +25,7 @@ _global_script_classes=[ {
 "path": "res://TurnManager.gd"
 } ]
 _global_script_class_icons={
+"BattleAnimations": "",
 "BattleUnit": "",
 "TurnManager": ""
 }
