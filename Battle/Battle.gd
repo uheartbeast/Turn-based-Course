@@ -1,5 +1,7 @@
 extends Node2D
 
+var turnManager : TurnManager = ReferenceStash.turnManager
+
 onready var player_battle_unit = $PlayerPosition/PlayerBattleUnit
 onready var enemy_battle_unit = $EnemyPosition/EnemyBattleUnit
 onready var animation_player = $AnimationPlayer

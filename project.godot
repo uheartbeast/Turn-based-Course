@@ -13,9 +13,15 @@ _global_script_classes=[ {
 "class": "BattleUnit",
 "language": "GDScript",
 "path": "res://Battle/BattleUnit.gd"
+}, {
+"base": "Resource",
+"class": "TurnManager",
+"language": "GDScript",
+"path": "res://TurnManager.gd"
 } ]
 _global_script_class_icons={
-"BattleUnit": ""
+"BattleUnit": "",
+"TurnManager": ""
 }
 
 [application]
@@ -27,6 +33,7 @@ config/icon="res://icon.png"
 [autoload]
 
 SceneStack="*res://SceneStack.gd"
+ReferenceStash="*res://ReferenceStash.gd"
 
 [display]
 
