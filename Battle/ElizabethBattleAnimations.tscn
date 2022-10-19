@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Sprites/ElizabethBattle.png" type="Texture" id=1]
 
@@ -66,6 +66,22 @@ tracks/0/keys = {
 "values": [ 0 ]
 }
 
+[sub_resource type="Animation" id=5]
+resource_name = "Return"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 14, 15, 16, 17, 18 ]
+}
+
 [node name="ElizabethBattleAnimations" type="Sprite"]
 position = Vector2( 25, -51 )
 texture = ExtResource( 1 )
@@ -77,3 +93,4 @@ anims/Approach = SubResource( 3 )
 anims/Idle = SubResource( 1 )
 anims/Melee = SubResource( 4 )
 anims/RESET = SubResource( 2 )
+anims/Return = SubResource( 5 )
