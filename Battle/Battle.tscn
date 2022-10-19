@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Battle/Battle.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Sky.png" type="Texture" id=2]
@@ -10,6 +10,8 @@
 [ext_resource path="res://Sprites/BattleGrassForeground.png" type="Texture" id=8]
 [ext_resource path="res://Sprites/BattleTreesForeground.png" type="Texture" id=9]
 [ext_resource path="res://Battle/BattleUnit.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Battle/ElizabethBattleAnimations.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Battle/WerewolfBattleAnimations.tscn" type="PackedScene" id=12]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Pan"
@@ -94,11 +96,14 @@ centered = false
 position = Vector2( 80, 136 )
 
 [node name="PlayerBattleUnit" parent="PlayerPosition" instance=ExtResource( 10 )]
+battle_animations_scene = ExtResource( 11 )
 
 [node name="EnemyPosition" type="Position2D" parent="."]
 position = Vector2( 240, 136 )
 
 [node name="EnemyBattleUnit" parent="EnemyPosition" instance=ExtResource( 10 )]
+scale = Vector2( -1, 1 )
+battle_animations_scene = ExtResource( 12 )
 
 [node name="ParallaxForeground" type="ParallaxBackground" parent="."]
 layer = 10
