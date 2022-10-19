@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Battle/Battle.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Sky.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Sprites/BattleGrassFront.png" type="Texture" id=7]
 [ext_resource path="res://Sprites/BattleGrassForeground.png" type="Texture" id=8]
 [ext_resource path="res://Sprites/BattleTreesForeground.png" type="Texture" id=9]
+[ext_resource path="res://Battle/BattleUnit.tscn" type="PackedScene" id=10]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Pan"
@@ -88,6 +89,16 @@ motion_mirroring = Vector2( 420, 0 )
 position = Vector2( -50, 0 )
 texture = ExtResource( 5 )
 centered = false
+
+[node name="PlayerPosition" type="Position2D" parent="."]
+position = Vector2( 80, 136 )
+
+[node name="PlayerBattleUnit" parent="PlayerPosition" instance=ExtResource( 10 )]
+
+[node name="EnemyPosition" type="Position2D" parent="."]
+position = Vector2( 240, 136 )
+
+[node name="EnemyBattleUnit" parent="EnemyPosition" instance=ExtResource( 10 )]
 
 [node name="ParallaxForeground" type="ParallaxBackground" parent="."]
 layer = 10
