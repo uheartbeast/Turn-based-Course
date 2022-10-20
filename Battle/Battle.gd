@@ -24,7 +24,5 @@ func _on_ally_turn_started() -> void:
 
 func _on_enemy_turn_started() -> void:
 	print("Enemy turn started")
-#	enemy_battle_unit.melee_attack()
-	timer.start(1.0)
-	yield(timer, "timeout")
+	yield(enemy_battle_unit.melee_attack(player_battle_unit), "completed")
 	turnManager.advance_turn()
