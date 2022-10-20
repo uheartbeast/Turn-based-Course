@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Battle/Battle.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Sky.png" type="Texture" id=2]
@@ -28,6 +28,30 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Vector2( -160, 90 ), Vector2( 160, 90 ), Vector2( 160, 90 ) ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("YellowFlash/ColorRect:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 0.772549, 0, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("YellowFlash/ColorRect:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
 
 [sub_resource type="Animation" id=2]
 length = 0.001
@@ -43,6 +67,33 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Vector2( -160, 90 ) ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("YellowFlash/ColorRect:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("YellowFlash/ColorRect:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="CanvasItemMaterial" id=3]
+blend_mode = 1
 
 [node name="Battle" type="Node2D"]
 script = ExtResource( 1 )
@@ -143,3 +194,11 @@ anims/Pan = SubResource( 1 )
 anims/RESET = SubResource( 2 )
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="YellowFlash" type="CanvasLayer" parent="."]
+layer = 100
+
+[node name="ColorRect" type="ColorRect" parent="YellowFlash"]
+material = SubResource( 3 )
+anchor_right = 1.0
+anchor_bottom = 1.0
