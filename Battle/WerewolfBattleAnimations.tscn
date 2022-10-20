@@ -104,7 +104,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Color( 2, 1.8, 1, 1 ) ]
+"values": [ Color( 1, 1, 1, 1 ) ]
 }
 
 [sub_resource type="Animation" id=5]
@@ -124,7 +124,6 @@ tracks/0/keys = {
 }
 
 [node name="WerewolfBattleAnimations" type="Sprite"]
-self_modulate = Color( 2, 1.8, 1, 1 )
 position = Vector2( 5, -58 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -0.5 )
