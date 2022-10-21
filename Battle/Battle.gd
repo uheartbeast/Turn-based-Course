@@ -26,6 +26,8 @@ func exit_battle() -> void:
 
 func _on_ally_turn_started() -> void:
 	if not is_instance_valid(player_battle_unit):
+		timer.start(1.0)
+		yield(timer, "timeout")
 		get_tree().quit()
 		return
 	player_battle_unit.melee_attack(enemy_battle_unit)

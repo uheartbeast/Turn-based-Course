@@ -56,13 +56,16 @@ func take_hit(attacker: BattleUnit) -> void:
 	var knockback_position := global_position.move_toward(attacker.global_position, -KNOCKBACK_AMOUNT)
 	interpolate_position(global_position, knockback_position, 0.2, Tween.TRANS_CIRC, Tween.EASE_OUT)
 	
-	battle_animations.play("Hit")
-	yield(battle_animations, "animation_finished")
-	
 	if stats.health == 0:
+		battle_animations.play("Death")
+		yield(battle_animations, "animation_finished")
 		queue_free()
 		return
-	
+	else:
+		battle_animations.play("Hit")
+		yield(battle_animations, "animation_finished")
+		battle_animations.play("Idle")
+
 	yield(interpolate_position(global_position, root_position, 0.2, Tween.TRANS_CIRC), "completed")
 	asyncTurnPool.remove(self)
 
