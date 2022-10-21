@@ -7,8 +7,12 @@ onready var player_battle_unit := $PlayerPosition/PlayerBattleUnit
 onready var enemy_battle_unit := $EnemyPosition/EnemyBattleUnit
 onready var animation_player := $AnimationPlayer
 onready var timer := $Timer
+onready var player_battle_unit_info := $BattleUI/PlayerBattleUnitInfo
+onready var enemy_battle_unit_info := $BattleUI/EnemyBattleUnitInfo
 
 func _ready() -> void:
+	player_battle_unit_info.stats = player_battle_unit.stats
+	enemy_battle_unit_info.stats = enemy_battle_unit.stats
 	yield(animation_player, "animation_finished")
 	turnManager.connect("ally_turn_started", self, "_on_ally_turn_started")
 	turnManager.connect("enemy_turn_started", self, "_on_enemy_turn_started")

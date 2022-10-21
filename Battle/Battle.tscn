@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Battle/Battle.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Sky.png" type="Texture" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://Battle/BattleUnit.tscn" type="PackedScene" id=10]
 [ext_resource path="res://ClassStats/WerewolfClassStats.tres" type="Resource" id=11]
 [ext_resource path="res://ClassStats/ElizabethClassStats.tres" type="Resource" id=12]
+[ext_resource path="res://UI/BattleUnitInfo.tscn" type="PackedScene" id=13]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Pan"
@@ -113,7 +114,7 @@ tracks/3/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ true ]
+"values": [ false ]
 }
 
 [sub_resource type="CanvasItemMaterial" id=3]
@@ -219,8 +220,24 @@ anims/RESET = SubResource( 2 )
 
 [node name="Timer" type="Timer" parent="."]
 
+[node name="BattleUI" type="CanvasLayer" parent="."]
+layer = 10
+
+[node name="PlayerBattleUnitInfo" parent="BattleUI" instance=ExtResource( 13 )]
+margin_left = 24.0
+margin_top = 16.0
+margin_right = 92.0
+margin_bottom = 28.0
+
+[node name="EnemyBattleUnitInfo" parent="BattleUI" instance=ExtResource( 13 )]
+margin_left = 228.0
+margin_top = 16.0
+margin_right = 296.0
+margin_bottom = 28.0
+
 [node name="YellowFlash" type="CanvasLayer" parent="."]
 layer = 100
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="YellowFlash"]
 material = SubResource( 3 )
