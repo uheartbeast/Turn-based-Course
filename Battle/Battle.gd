@@ -23,6 +23,8 @@ func _on_ally_turn_started() -> void:
 	player_battle_unit.melee_attack(enemy_battle_unit)
 
 func _on_enemy_turn_started() -> void:
+	if not is_instance_valid(enemy_battle_unit) or enemy_battle_unit.is_queued_for_deletion():
+		return
 	enemy_battle_unit.melee_attack(player_battle_unit)
 
 func _on_async_turn_pool_turn_over() -> void:

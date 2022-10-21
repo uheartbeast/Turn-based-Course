@@ -19,6 +19,9 @@ func set_stats(value : ClassStats) -> void:
 	battle_animations = stats.battle_animations.instance()
 	add_child(battle_animations)
 
+func _exit_tree() -> void:
+	asyncTurnPool.remove(self)
+
 func melee_attack(target : BattleUnit) -> void:
 	asyncTurnPool.add(self)
 	z_index = 10
@@ -46,6 +49,7 @@ func melee_attack(target : BattleUnit) -> void:
 func deal_damage(target: BattleUnit) -> void:
 	var damage = ((stats.level*3 + (1-target.stats.defense * 0.05)) / 2) * (stats.attack/6)
 	target.stats.health -= damage
+	print(target.stats.health)
 
 func take_hit(attacker: BattleUnit) -> void:
 	asyncTurnPool.add(self)
@@ -54,6 +58,10 @@ func take_hit(attacker: BattleUnit) -> void:
 	
 	battle_animations.play("Hit")
 	yield(battle_animations, "animation_finished")
+	
+	if stats.health == 0:
+		queue_free()
+		return
 	
 	yield(interpolate_position(global_position, root_position, 0.2, Tween.TRANS_CIRC), "completed")
 	asyncTurnPool.remove(self)
