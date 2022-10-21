@@ -6,16 +6,18 @@ const KNOCKBACK_AMOUNT = 24
 
 var asyncTurnPool : AsyncTurnPool = ReferenceStash.asyncTurnPool
 
-export(PackedScene) var battle_animations_scene
+export(Resource) var stats setget set_stats
 
 var battle_animations : BattleAnimations
 
 onready var root_position := global_position
 
-func _ready() -> void:
-	if battle_animations_scene is PackedScene:
-		battle_animations = battle_animations_scene.instance()
-		add_child(battle_animations)
+func set_stats(value : ClassStats) -> void:
+	stats = value
+	if not stats is ClassStats: return
+	if battle_animations is BattleAnimations: battle_animations.queue_free()
+	battle_animations = stats.battle_animations.instance()
+	add_child(battle_animations)
 
 func melee_attack(target : BattleUnit) -> void:
 	asyncTurnPool.add(self)
