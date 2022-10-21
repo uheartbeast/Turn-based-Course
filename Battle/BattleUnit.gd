@@ -19,9 +19,6 @@ func set_stats(value : ClassStats) -> void:
 	battle_animations = stats.battle_animations.instance()
 	add_child(battle_animations)
 
-func _exit_tree() -> void:
-	asyncTurnPool.remove(self)
-
 func melee_attack(target : BattleUnit) -> void:
 	asyncTurnPool.add(self)
 	z_index = 10
@@ -58,6 +55,7 @@ func take_hit(attacker: BattleUnit) -> void:
 	if stats.health == 0:
 		battle_animations.play("Death")
 		yield(battle_animations, "animation_finished")
+		asyncTurnPool.remove(self)
 		queue_free()
 		return
 	else:
