@@ -19,11 +19,20 @@ func _unhandled_input(event : InputEvent) -> void:
 	if event.is_action_pressed("ui_accept"):
 		SceneStack.pop()
 
+func exit_battle() -> void:
+	timer.start(1.0)
+	yield(timer, "timeout")
+	SceneStack.pop()
+
 func _on_ally_turn_started() -> void:
+	if not is_instance_valid(player_battle_unit):
+		get_tree().quit()
+		return
 	player_battle_unit.melee_attack(enemy_battle_unit)
 
 func _on_enemy_turn_started() -> void:
 	if not is_instance_valid(enemy_battle_unit) or enemy_battle_unit.is_queued_for_deletion():
+		exit_battle()
 		return
 	enemy_battle_unit.melee_attack(player_battle_unit)
 
