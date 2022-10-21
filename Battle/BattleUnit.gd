@@ -28,7 +28,7 @@ func melee_attack(target : BattleUnit) -> void:
 	interpolate_position(global_position, target_position, animation_duration)
 	yield(battle_animations, "animation_finished")
 	
-	print("Attack")
+	deal_damage(target)
 	target.take_hit(self)
 	
 	battle_animations.play("Melee")
@@ -42,6 +42,10 @@ func melee_attack(target : BattleUnit) -> void:
 	battle_animations.play("Idle")
 	z_index = 0
 	asyncTurnPool.remove(self)
+
+func deal_damage(target: BattleUnit) -> void:
+	var damage = ((stats.level*3 + (1-target.stats.defense * 0.05)) / 2) * (stats.attack/6)
+	target.stats.health -= damage
 
 func take_hit(attacker: BattleUnit) -> void:
 	asyncTurnPool.add(self)

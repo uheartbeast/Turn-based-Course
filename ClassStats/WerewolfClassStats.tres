@@ -7,6 +7,6 @@
 script = ExtResource( 1 )
 name = "Werewolf"
 max_health = 6
-attack = 6
+attack = 10
 defense = 7
 battle_animations = ExtResource( 2 )
