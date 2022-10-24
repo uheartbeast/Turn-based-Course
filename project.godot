@@ -29,6 +29,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://ClassStats/ClassStats.gd"
 }, {
+"base": "ClassStats",
+"class": "PlayerClassStats",
+"language": "GDScript",
+"path": "res://ClassStats/PlayerClassStats.gd"
+}, {
 "base": "Resource",
 "class": "TurnManager",
 "language": "GDScript",
@@ -39,6 +44,7 @@ _global_script_class_icons={
 "BattleAnimations": "",
 "BattleUnit": "",
 "ClassStats": "",
+"PlayerClassStats": "",
 "TurnManager": ""
 }
 
