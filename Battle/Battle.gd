@@ -10,6 +10,7 @@ onready var timer := $Timer
 onready var player_battle_unit_info := $BattleUI/PlayerBattleUnitInfo
 onready var enemy_battle_unit_info := $BattleUI/EnemyBattleUnitInfo
 onready var level_up_ui = $"%LevelUpUI"
+onready var battle_menu = $"%BattleMenu"
 
 func _ready() -> void:
 	player_battle_unit_info.stats = player_battle_unit.stats
@@ -19,10 +20,6 @@ func _ready() -> void:
 	turnManager.connect("enemy_turn_started", self, "_on_enemy_turn_started")
 	turnManager.start()
 	asyncTurnPool.connect("turn_over", self, "_on_async_turn_pool_turn_over")
-
-func _unhandled_input(event : InputEvent) -> void:
-	if event.is_action_pressed("ui_accept"):
-		SceneStack.pop()
 
 func battle_won() -> void:
 	timer.start(0.5)
@@ -45,7 +42,20 @@ func _on_ally_turn_started() -> void:
 		yield(timer, "timeout")
 		get_tree().quit()
 		return
-	player_battle_unit.melee_attack(enemy_battle_unit)
+	
+	battle_menu.show()
+	battle_menu.grab_action_focus()
+	var option : int = yield(battle_menu, "menu_option_selected")
+	battle_menu.hide()
+	match option:
+		BattleMenu.ACTION:
+			player_battle_unit.melee_attack(enemy_battle_unit)
+		BattleMenu.ITEM:
+			turnManager.advance_turn()
+		BattleMenu.RUN:
+			timer.start(0.1)
+			yield(timer, "timeout")
+			SceneStack.pop()
 
 func _on_enemy_turn_started() -> void:
 	if not is_instance_valid(enemy_battle_unit) or enemy_battle_unit.is_queued_for_deletion():

@@ -11,12 +11,21 @@
 [ext_resource path="res://UI/BattleMenu.gd" type="Script" id=9]
 
 [node name="BattleMenu" type="HBoxContainer"]
-margin_right = 184.0
-margin_bottom = 27.0
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -92.0
+margin_top = -37.0
+margin_right = 92.0
+margin_bottom = -10.0
 rect_min_size = Vector2( 184, 24 )
 theme = ExtResource( 2 )
 custom_constants/separation = 0
 script = ExtResource( 9 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="LeftEdge" type="TextureRect" parent="."]
 margin_right = 14.0

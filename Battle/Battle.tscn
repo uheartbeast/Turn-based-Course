@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Battle/Battle.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Sky.png" type="Texture" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://ClassStats/ElizabethClassStats.tres" type="Resource" id=12]
 [ext_resource path="res://UI/BattleUnitInfo.tscn" type="PackedScene" id=13]
 [ext_resource path="res://UI/LevelUpUI.tscn" type="PackedScene" id=14]
+[ext_resource path="res://UI/BattleMenu.tscn" type="PackedScene" id=15]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Pan"
@@ -247,6 +248,10 @@ margin_left = 100.0
 margin_top = 75.0
 margin_right = 220.0
 margin_bottom = 105.0
+
+[node name="BattleMenu" parent="BattleUI" instance=ExtResource( 15 )]
+unique_name_in_owner = true
+visible = false
 
 [node name="YellowFlash" type="CanvasLayer" parent="."]
 layer = 100
