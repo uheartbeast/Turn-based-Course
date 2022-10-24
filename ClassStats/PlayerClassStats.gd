@@ -10,3 +10,4 @@ func set_experience(value : int) -> void:
 	while experience >= MAX_EXPERIENCE:
 		experience = experience - MAX_EXPERIENCE
 		level += 1
+		emit_signal("level_changed")

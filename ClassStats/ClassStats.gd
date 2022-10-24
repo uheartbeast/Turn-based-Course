@@ -14,6 +14,7 @@ var health := 1 setget set_health
 signal health_changed
 signal no_health
 signal max_health_changed
+signal level_changed
 
 func set_health(value : int) -> void:
 	health = clamp(value, 0, max_health)
