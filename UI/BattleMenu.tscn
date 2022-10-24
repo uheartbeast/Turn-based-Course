@@ -88,3 +88,7 @@ margin_bottom = 27.0
 texture = ExtResource( 1 )
 stretch_mode = 4
 flip_h = true
+
+[connection signal="button_down" from="PanelContainer/MarginContainer/HBoxContainer/ActionButton" to="." method="_on_ActionButton_button_down"]
+[connection signal="button_down" from="PanelContainer/MarginContainer/HBoxContainer/ItemButton" to="." method="_on_ItemButton_button_down"]
+[connection signal="button_down" from="PanelContainer/MarginContainer/HBoxContainer/RunButton" to="." method="_on_RunButton_button_down"]
