@@ -11,6 +11,7 @@ onready var player_battle_unit_info := $BattleUI/PlayerBattleUnitInfo
 onready var enemy_battle_unit_info := $BattleUI/EnemyBattleUnitInfo
 onready var level_up_ui = $"%LevelUpUI"
 onready var battle_menu = $"%BattleMenu"
+onready var battle_camera = $BattleCamera
 
 func _ready() -> void:
 	player_battle_unit_info.stats = player_battle_unit.stats
@@ -49,13 +50,12 @@ func _on_ally_turn_started() -> void:
 	battle_menu.hide_menu()
 	match option:
 		BattleMenu.ACTION:
+			battle_camera.focus_target(enemy_battle_unit)
 			player_battle_unit.melee_attack(enemy_battle_unit)
 		BattleMenu.ITEM:
 			turnManager.advance_turn()
 		BattleMenu.RUN:
-			timer.start(0.1)
-			yield(timer, "timeout")
-			SceneStack.pop()
+			exit_battle()
 
 func _on_enemy_turn_started() -> void:
 	if not is_instance_valid(enemy_battle_unit) or enemy_battle_unit.is_queued_for_deletion():

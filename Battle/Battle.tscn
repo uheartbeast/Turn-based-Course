@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Battle/Battle.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Sky.png" type="Texture" id=2]
@@ -15,12 +15,13 @@
 [ext_resource path="res://UI/BattleUnitInfo.tscn" type="PackedScene" id=13]
 [ext_resource path="res://UI/LevelUpUI.tscn" type="PackedScene" id=14]
 [ext_resource path="res://UI/BattleMenu.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Battle/BattleCamera.tscn" type="PackedScene" id=16]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Pan"
 length = 2.0
 tracks/0/type = "value"
-tracks/0/path = NodePath("Camera2D:position")
+tracks/0/path = NodePath("BattleCamera:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -71,7 +72,7 @@ tracks/3/keys = {
 [sub_resource type="Animation" id=2]
 length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath("Camera2D:position")
+tracks/0/path = NodePath("BattleCamera:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -211,9 +212,8 @@ position = Vector2( -320, 0 )
 texture = ExtResource( 9 )
 centered = false
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="BattleCamera" parent="." instance=ExtResource( 16 )]
 position = Vector2( -160, 90 )
-current = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Pan"
