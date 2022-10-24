@@ -9,6 +9,7 @@ onready var animation_player := $AnimationPlayer
 onready var timer := $Timer
 onready var player_battle_unit_info := $BattleUI/PlayerBattleUnitInfo
 onready var enemy_battle_unit_info := $BattleUI/EnemyBattleUnitInfo
+onready var level_up_ui = $"%LevelUpUI"
 
 func _ready() -> void:
 	player_battle_unit_info.stats = player_battle_unit.stats
@@ -29,7 +30,7 @@ func battle_won() -> void:
 	var previous_level : int = player_battle_unit.stats.level
 	player_battle_unit.stats.experience += 105
 	if player_battle_unit.stats.level > previous_level:
-		print("Level up!")
+		yield(level_up_ui.level_up(), "completed")
 	timer.start(0.5)
 	yield(timer, "timeout")
 

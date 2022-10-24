@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Battle/Battle.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Sky.png" type="Texture" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://ClassStats/WerewolfClassStats.tres" type="Resource" id=11]
 [ext_resource path="res://ClassStats/ElizabethClassStats.tres" type="Resource" id=12]
 [ext_resource path="res://UI/BattleUnitInfo.tscn" type="PackedScene" id=13]
+[ext_resource path="res://UI/LevelUpUI.tscn" type="PackedScene" id=14]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Pan"
@@ -234,6 +235,18 @@ margin_left = 228.0
 margin_top = 16.0
 margin_right = 296.0
 margin_bottom = 28.0
+
+[node name="CenterContainer" type="CenterContainer" parent="BattleUI"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="LevelUpUI" parent="BattleUI/CenterContainer" instance=ExtResource( 14 )]
+unique_name_in_owner = true
+visible = false
+margin_left = 100.0
+margin_top = 75.0
+margin_right = 220.0
+margin_bottom = 105.0
 
 [node name="YellowFlash" type="CanvasLayer" parent="."]
 layer = 100
