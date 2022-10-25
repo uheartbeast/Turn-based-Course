@@ -44,6 +44,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://World/Interactable.gd"
 }, {
+"base": "Resource",
+"class": "Inventory",
+"language": "GDScript",
+"path": "res://Items/Inventory.gd"
+}, {
 "base": "ClassStats",
 "class": "PlayerClassStats",
 "language": "GDScript",
@@ -62,6 +67,7 @@ _global_script_class_icons={
 "BattleUnit": "",
 "ClassStats": "",
 "Interactable": "",
+"Inventory": "",
 "PlayerClassStats": "",
 "TurnManager": ""
 }
