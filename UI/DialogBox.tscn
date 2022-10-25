@@ -7,6 +7,7 @@
 [ext_resource path="res://UI/DialogBox.gd" type="Script" id=5]
 
 [node name="DialogBox" type="TextureRect"]
+pause_mode = 2
 self_modulate = Color( 1, 1, 1, 0.423529 )
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -58,6 +59,7 @@ margin_left = 2.0
 margin_top = 2.0
 margin_right = 208.0
 margin_bottom = 38.0
+bbcode_enabled = true
 
 [node name="PortraitContainer" type="HBoxContainer" parent="HboxContainer"]
 margin_left = 235.0
