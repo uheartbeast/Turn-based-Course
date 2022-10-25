@@ -70,6 +70,8 @@ config/icon="res://icon.png"
 
 SceneStack="*res://SceneStack.gd"
 ReferenceStash="*res://ReferenceStash.gd"
+Events="*res://Events.gd"
+GlobalUi="*res://UI/GlobalUI.tscn"
 
 [display]
 

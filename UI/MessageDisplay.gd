@@ -3,7 +3,7 @@ extends CenterContainer
 onready var label = $"%Label"
 
 func _ready() -> void:
-	show_message("Hi, this is a new message")
+	Events.connect("request_show_message", self, "show_message")
 
 func _input(event : InputEvent) -> void:
 	if not visible: return
