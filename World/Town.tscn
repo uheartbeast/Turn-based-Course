@@ -25,6 +25,7 @@ position = Vector2( 200, 24 )
 
 [node name="Barrel3" parent="." instance=ExtResource( 4 )]
 position = Vector2( 232, 136 )
+item = ExtResource( 6 )
 
 [node name="ItemPickup" parent="." instance=ExtResource( 5 )]
 position = Vector2( 184, 88 )

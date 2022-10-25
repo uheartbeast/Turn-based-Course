@@ -15,5 +15,5 @@ func set_sprite_texture(item) -> void:
 
 func _run_interaction() -> void:
 	inventory.add_item(item)
-	Events.emit_signal("request_show_message", "You found a " + str(item.name) + ".\n"+item.description)
+	Events.emit_signal("request_show_message", "You found a " + str(item.name) + ".")
 	queue_free()
