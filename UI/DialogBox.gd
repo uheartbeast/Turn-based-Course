@@ -11,10 +11,11 @@ onready var portrait := $"%Portrait"
 signal dialog_finished
 
 func _ready() -> void:
-	type_dialog("Hi, here is some test dialog.", Resource.new())
+	type_dialog("Hi, here is some test dialog.", load("res://Characters/ElizabethCharacter.tres"))
 
-func type_dialog(bbcode : String, character : Resource) -> void:
+func type_dialog(bbcode : String, character : Character) -> void:
 	is_typing = true
+	portrait.texture = character.portrait
 	get_tree().paused = true
 	show()
 	textbox.bbcode_text = bbcode
