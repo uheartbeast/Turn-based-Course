@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://World/OverworldPlayer.tscn" type="PackedScene" id=1]
 [ext_resource path="res://World/GrassBackground.tscn" type="PackedScene" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://World/ItemPickup.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Items/AppleItem.tres" type="Resource" id=6]
 [ext_resource path="res://UI/OverworldUI.tscn" type="PackedScene" id=7]
+[ext_resource path="res://World/NPC.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Characters/StumpyCharacter.tres" type="Resource" id=9]
 
 [node name="Town" type="YSort"]
 
@@ -33,3 +35,7 @@ position = Vector2( 184, 88 )
 item = ExtResource( 6 )
 
 [node name="OverworldUI" parent="." instance=ExtResource( 7 )]
+
+[node name="NPC" parent="." instance=ExtResource( 8 )]
+position = Vector2( 248, 40 )
+character = ExtResource( 9 )
