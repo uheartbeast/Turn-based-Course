@@ -39,6 +39,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://ClassStats/ClassStats.gd"
 }, {
+"base": "Node",
+"class": "Interactable",
+"language": "GDScript",
+"path": "res://World/Interactable.gd"
+}, {
 "base": "ClassStats",
 "class": "PlayerClassStats",
 "language": "GDScript",
@@ -56,6 +61,7 @@ _global_script_class_icons={
 "BattleMenu": "",
 "BattleUnit": "",
 "ClassStats": "",
+"Interactable": "",
 "PlayerClassStats": "",
 "TurnManager": ""
 }
