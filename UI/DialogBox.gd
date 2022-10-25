@@ -8,10 +8,8 @@ var is_typing : bool = false
 onready var textbox := $"%Textbox"
 onready var portrait := $"%Portrait"
 
-signal dialog_finished
-
 func _ready() -> void:
-	type_dialog("Hi, here is some test dialog.", load("res://Characters/ElizabethCharacter.tres"))
+	Events.connect("request_show_dialog", self, "type_dialog")
 
 func _unhandled_input(event : InputEvent) -> void:
 	if not visible: return
@@ -25,7 +23,7 @@ func _unhandled_input(event : InputEvent) -> void:
 		hide()
 		get_tree().set_input_as_handled()
 		get_tree().paused = false
-		emit_signal("dialog_finished")
+		Events.emit_signal("dialog_finished")
 
 func type_dialog(bbcode : String, character : Character) -> void:
 	is_typing = true
