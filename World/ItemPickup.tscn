@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://World/ItemPickup.gd" type="Script" id=2]
+
+[node name="ItemPickup" type="StaticBody2D"]
+collision_layer = 9
+collision_mask = 0
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -6, 4, -6, -4, -4, -6, 4, -6, 6, -4, 6, 4, 4, 6, -4, 6 )
+__meta__ = {
+"_editor_description_": ""
+}
