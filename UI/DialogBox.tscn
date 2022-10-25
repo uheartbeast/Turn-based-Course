@@ -1,0 +1,87 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Sprites/DialogShadow.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/PortraitEdge.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/StumpyPortrait.png" type="Texture" id=3]
+[ext_resource path="res://UI/DefaultTheme.tres" type="Theme" id=4]
+
+[node name="DialogBox" type="TextureRect"]
+self_modulate = Color( 1, 1, 1, 0.423529 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 4 )
+texture = ExtResource( 1 )
+expand = true
+
+[node name="HboxContainer" type="HBoxContainer" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_vertical = 0
+
+[node name="DialogContainer" type="HBoxContainer" parent="HboxContainer"]
+margin_top = 24.0
+margin_right = 231.0
+margin_bottom = 72.0
+size_flags_horizontal = 3
+size_flags_vertical = 8
+custom_constants/separation = 0
+
+[node name="LeftEdge" type="TextureRect" parent="HboxContainer/DialogContainer"]
+margin_right = 13.0
+margin_bottom = 48.0
+texture = ExtResource( 2 )
+stretch_mode = 4
+
+[node name="PanelContainer" type="PanelContainer" parent="HboxContainer/DialogContainer"]
+margin_left = 13.0
+margin_right = 231.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 0, 48 )
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="HboxContainer/DialogContainer/PanelContainer"]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 214.0
+margin_bottom = 44.0
+custom_constants/margin_right = 2
+custom_constants/margin_top = 2
+custom_constants/margin_left = 2
+custom_constants/margin_bottom = 2
+
+[node name="Textbox" type="RichTextLabel" parent="HboxContainer/DialogContainer/PanelContainer/MarginContainer"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 208.0
+margin_bottom = 38.0
+
+[node name="PortraitContainer" type="HBoxContainer" parent="HboxContainer"]
+margin_left = 235.0
+margin_right = 320.0
+margin_bottom = 72.0
+custom_constants/separation = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="HboxContainer/PortraitContainer"]
+margin_right = 72.0
+margin_bottom = 72.0
+
+[node name="Portrait" type="TextureRect" parent="HboxContainer/PortraitContainer/PanelContainer"]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 68.0
+margin_bottom = 68.0
+texture = ExtResource( 3 )
+
+[node name="MarginContainer" type="MarginContainer" parent="HboxContainer/PortraitContainer"]
+margin_left = 72.0
+margin_right = 85.0
+margin_bottom = 72.0
+custom_constants/margin_top = 2
+
+[node name="RightEdge" type="TextureRect" parent="HboxContainer/PortraitContainer/MarginContainer"]
+margin_top = 2.0
+margin_right = 13.0
+margin_bottom = 72.0
+texture = ExtResource( 2 )
+flip_h = true
