@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Sprites/ElizabethWalk.png" type="Texture" id=1]
 [ext_resource path="res://World/OverworldPlayer.gd" type="Script" id=2]
@@ -129,7 +129,11 @@ animations = [ {
 "speed": 5.0
 } ]
 
+[sub_resource type="CircleShape2D" id=23]
+radius = 5.0
+
 [node name="OverworldPlayer" type="KinematicBody2D"]
+collision_layer = 2
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -143,3 +147,11 @@ playing = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
+
+[node name="InteractableDetector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableDetector"]
+position = Vector2( 8, 0 )
+shape = SubResource( 23 )

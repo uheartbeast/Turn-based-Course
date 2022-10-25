@@ -4,6 +4,8 @@
 [ext_resource path="res://World/Barrel.gd" type="Script" id=2]
 
 [node name="Barrel" type="StaticBody2D"]
+collision_layer = 9
+collision_mask = 0
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]

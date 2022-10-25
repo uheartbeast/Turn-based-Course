@@ -5,6 +5,10 @@ const WALK_SPEED = 80
 var velocity := Vector2.ZERO
 
 onready var animated_sprite := $AnimatedSprite
+onready var interactable_detector := $InteractableDetector
+
+func _ready() -> void:
+	interactable_detector.rotation = Vector2.DOWN.angle()
 
 func _physics_process(delta : float) -> void:
 	var input_vector = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
@@ -13,13 +17,17 @@ func _physics_process(delta : float) -> void:
 	
 	if is_moving():
 		animate_walk()
+		interactable_detector.rotation = velocity.angle()
 	else:
 		animate_idle()
 
 func _unhandled_input(event : InputEvent) -> void:
 	if event.is_action_pressed("ui_accept"):
-		Events.emit_signal("request_show_message", "Here is a new message!")
-#		SceneStack.push("res://Battle/Battle.tscn")
+		var interactables : Array = interactable_detector.get_overlapping_bodies()
+		for interactable in interactables:
+			if not interactable is Interactable: continue
+			interactable._run_interaction()
+			get_tree().set_input_as_handled()
 
 func is_moving() -> bool:
 	return velocity != Vector2.ZERO

@@ -163,6 +163,13 @@ ui_down={
  ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="World"
+2d_physics/layer_2="Characters"
+2d_physics/layer_3="Doors"
+2d_physics/layer_4="Interactables"
+
 [physics]
 
 common/enable_pause_aware_picking=true
