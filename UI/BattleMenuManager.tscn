@@ -31,6 +31,9 @@ margin_bottom = 44.0
 [node name="ItemList" parent="BattleMenu/SubmenuPosition/MenuContainer" instance=ExtResource( 3 )]
 unique_name_in_owner = true
 visible = false
-margin_left = 22.0
-margin_right = 40.0
+margin_right = 18.0
 margin_bottom = 44.0
+
+[connection signal="menu_option_selected" from="BattleMenu" to="." method="_on_BattleMenu_menu_option_selected"]
+[connection signal="resource_selected" from="BattleMenu/SubmenuPosition/MenuContainer/ActionList" to="." method="_on_ActionList_resource_selected"]
+[connection signal="resource_selected" from="BattleMenu/SubmenuPosition/MenuContainer/ItemList" to="." method="_on_ItemList_resource_selected"]

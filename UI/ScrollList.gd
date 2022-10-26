@@ -1,16 +1,14 @@
 extends PanelContainer
 class_name ScrollList
 
-var elizabethStats : PlayerClassStats = ReferenceStash.elizabethStats
-
 const ResourceButtonScene := preload("res://UI/ResourceButton.tscn")
 
 onready var scroll_container := $"%ScrollContainer"
 onready var button_container := $"%ButtonContainer"
 
-func _ready() -> void:
-	fill(elizabethStats.battle_actions)
-	connect_scroll_children()
+signal resource_selected(resource)
+
+func grab_button_focus() -> void:
 	button_container.get_child(0).grab_focus()
 
 func fill(resource_list : Array) -> void:
@@ -18,6 +16,7 @@ func fill(resource_list : Array) -> void:
 		var resource_button : ResourceButton = add_resource_button()
 		resource_button.resource = resource
 		resource_button.text = resource.name
+	connect_scroll_children()
 
 func add_resource_button() -> ResourceButton:
 	var resource_button : ResourceButton = ResourceButtonScene.instance()
@@ -50,4 +49,4 @@ func get_focused_scroll_amount() -> int:
 	return focused_scroll_amount
 
 func _on_resource_selected(resource: Resource) -> void:
-	print(resource.name)
+	emit_signal("resource_selected", resource)
