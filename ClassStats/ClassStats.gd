@@ -6,6 +6,7 @@ export(int) var max_health setget set_max_health
 export(int) var attack
 export(int) var defense
 
+export(Array, Resource) var battle_actions
 export(PackedScene) var battle_animations
 
 var level := 1

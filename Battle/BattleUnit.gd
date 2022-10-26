@@ -19,7 +19,7 @@ func set_stats(value : ClassStats) -> void:
 	battle_animations = stats.battle_animations.instance()
 	add_child(battle_animations)
 
-func melee_attack(target : BattleUnit) -> void:
+func melee_attack(target : BattleUnit, battle_action : DamageBattleAction) -> void:
 	asyncTurnPool.add(self)
 	z_index = 10
 	battle_animations.play("Approach")
@@ -28,7 +28,7 @@ func melee_attack(target : BattleUnit) -> void:
 	interpolate_position(global_position, target_position, animation_duration)
 	yield(battle_animations, "animation_finished")
 	
-	deal_damage(target)
+	deal_damage(target, battle_action)
 	target.take_hit(self)
 	
 	battle_animations.play("Melee")
@@ -43,8 +43,8 @@ func melee_attack(target : BattleUnit) -> void:
 	z_index = 0
 	asyncTurnPool.remove(self)
 
-func deal_damage(target: BattleUnit) -> void:
-	var damage = ((stats.level*3 + (1-target.stats.defense * 0.05)) / 2) * (stats.attack/6)
+func deal_damage(target: BattleUnit, battle_action : DamageBattleAction) -> void:
+	var damage = ((stats.level*3 + (1-target.stats.defense * 0.05)) / 2) * ((stats.attack + battle_action.damage / 5) / 6)
 	target.stats.health -= damage
 
 func take_hit(attacker: BattleUnit) -> void:

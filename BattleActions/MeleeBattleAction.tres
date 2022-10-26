@@ -6,4 +6,4 @@
 script = ExtResource( 1 )
 name = "Melee"
 type = 0
-damage = 5
+damage = 7
