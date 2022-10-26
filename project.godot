@@ -97,7 +97,7 @@ _global_script_classes=[ {
 "base": "PanelContainer",
 "class": "ScrollList",
 "language": "GDScript",
-"path": "res://UI/ScollList.gd"
+"path": "res://UI/ScrollList.gd"
 }, {
 "base": "Resource",
 "class": "TurnManager",
