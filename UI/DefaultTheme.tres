@@ -1,9 +1,27 @@
-[gd_resource type="Theme" load_steps=4 format=2]
+[gd_resource type="Theme" load_steps=8 format=2]
 
 [ext_resource path="res://UI/PanelStylebox.tres" type="StyleBox" id=1]
 [ext_resource path="res://UI/WestwickFont.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Sprites/ScrollBarBackground.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/ScrollBarButton.png" type="Texture" id=4]
 
 [sub_resource type="StyleBoxEmpty" id=1]
+
+[sub_resource type="StyleBoxTexture" id=2]
+texture = ExtResource( 4 )
+region_rect = Rect2( 0, 0, 7, 7 )
+margin_left = 3.0
+margin_right = 3.0
+margin_top = 3.0
+margin_bottom = 3.0
+
+[sub_resource type="StyleBoxTexture" id=3]
+texture = ExtResource( 3 )
+region_rect = Rect2( 0, 0, 9, 9 )
+margin_left = 2.0
+margin_right = 2.0
+margin_top = 2.0
+margin_bottom = 2.0
 
 [resource]
 default_font = ExtResource( 2 )
@@ -17,3 +35,8 @@ Button/styles/hover = SubResource( 1 )
 Button/styles/normal = SubResource( 1 )
 Button/styles/pressed = SubResource( 1 )
 PanelContainer/styles/panel = ExtResource( 1 )
+VScrollBar/styles/grabber = SubResource( 2 )
+VScrollBar/styles/grabber_highlight = SubResource( 2 )
+VScrollBar/styles/grabber_pressed = ExtResource( 1 )
+VScrollBar/styles/scroll = SubResource( 3 )
+VScrollBar/styles/scroll_focus = ExtResource( 1 )
