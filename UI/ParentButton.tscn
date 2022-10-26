@@ -7,4 +7,5 @@
 margin_right = 38.0
 margin_bottom = 11.0
 theme = ExtResource( 1 )
+align = 0
 script = ExtResource( 2 )
