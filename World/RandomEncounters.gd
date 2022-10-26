@@ -9,3 +9,4 @@ func _ready() -> void:
 
 func _exit_tree() -> void:
 	ReferenceStash.random_encounters = []
+	request_ready()

@@ -7,3 +7,4 @@ var elizabethStats : PlayerClassStats = load("res://ClassStats/ElizabethClassSta
 var inventory : Inventory = load("res://Items/Inventory.tres")
 
 var random_encounters := []
+var encounter_class : ClassStats
