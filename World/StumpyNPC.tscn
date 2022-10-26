@@ -1,0 +1,9 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://World/NPC.tscn" type="PackedScene" id=1]
+[ext_resource path="res://World/StumpyNPC.gd" type="Script" id=2]
+[ext_resource path="res://Characters/StumpyCharacter.tres" type="Resource" id=3]
+
+[node name="StumpyNPC" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+character = ExtResource( 3 )
