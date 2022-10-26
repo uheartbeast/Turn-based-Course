@@ -1,9 +1,35 @@
 extends NPC
 
+const ELIZABETH_CHARACTER : Character = preload("res://Characters/ElizabethCharacter.tres")
+const APPLE_ITEM : Item = preload("res://Items/AppleItem.tres")
+
+var inventory : Inventory = ReferenceStash.inventory
+
+var has_apple := false
+
 func _run_interaction() -> void:
-	Events.emit_signal("request_show_dialog", "Aaaaaah! I have a head ache.", character)
-	yield(Events, "dialog_finished")
-	Events.emit_signal("request_show_dialog", "Can you find a potion?", character)
-	yield(Events, "dialog_finished")
-	Events.emit_signal("request_show_dialog", "I'll look around for you.", load("res://Characters/ElizabethCharacter.tres"))
-	yield(Events, "dialog_finished")
+	if not has_apple:
+		Events.emit_signal("request_show_dialog", "Aaaaaah! I have a head ache.", character)
+		yield(Events, "dialog_finished")
+		Events.emit_signal("request_show_dialog", "Do you have an apple I can eat?", character)
+		yield(Events, "dialog_finished")
+		
+		var apple = inventory.remove_item(APPLE_ITEM)
+		
+		if apple is Item:
+			Events.emit_signal("request_show_dialog", "I do.", ELIZABETH_CHARACTER)
+			yield(Events, "dialog_finished")
+			Events.emit_signal("request_show_dialog", "Here it is.", ELIZABETH_CHARACTER)
+			yield(Events, "dialog_finished")
+			has_apple = true
+		else:
+			Events.emit_signal("request_show_dialog", "I'll look around for you.", ELIZABETH_CHARACTER)
+			yield(Events, "dialog_finished")
+	
+	if has_apple:
+		Events.emit_signal("request_show_dialog", "I feel much better now.", character)
+		yield(Events, "dialog_finished")
+		Events.emit_signal("request_show_dialog", "Thank you.", character)
+		yield(Events, "dialog_finished")
+		Events.emit_signal("request_show_dialog", "You're welcome!", ELIZABETH_CHARACTER)
+		yield(Events, "dialog_finished")
