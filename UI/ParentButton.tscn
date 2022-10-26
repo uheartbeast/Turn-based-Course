@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://UI/DefaultTheme.tres" type="Theme" id=1]
+[ext_resource path="res://UI/ParentButton.gd" type="Script" id=2]
 
 [node name="ParentButton" type="Button"]
 margin_right = 38.0
 margin_bottom = 11.0
 theme = ExtResource( 1 )
+script = ExtResource( 2 )

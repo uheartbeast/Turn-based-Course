@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://ResourceButton.gd" type="Script" id=1]
+[ext_resource path="res://UI/ParentButton.tscn" type="PackedScene" id=2]
+
+[node name="ResourceButton" instance=ExtResource( 2 )]
+script = ExtResource( 1 )
+
+[connection signal="button_down" from="." to="." method="_on_ResourceButton_button_down"]

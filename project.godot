@@ -79,10 +79,20 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://World/NPC.gd"
 }, {
+"base": "Button",
+"class": "ParentButton",
+"language": "GDScript",
+"path": "res://UI/ParentButton.gd"
+}, {
 "base": "ClassStats",
 "class": "PlayerClassStats",
 "language": "GDScript",
 "path": "res://ClassStats/PlayerClassStats.gd"
+}, {
+"base": "ParentButton",
+"class": "ResourceButton",
+"language": "GDScript",
+"path": "res://ResourceButton.gd"
 }, {
 "base": "Resource",
 "class": "TurnManager",
@@ -104,7 +114,9 @@ _global_script_class_icons={
 "Item": "",
 "Math": "",
 "NPC": "",
+"ParentButton": "",
 "PlayerClassStats": "",
+"ResourceButton": "",
 "TurnManager": ""
 }
 
