@@ -26,6 +26,7 @@ script = ExtResource( 9 )
 __meta__ = {
 "_edit_group_": true
 }
+focus_nodes = [ NodePath("PanelContainer/MarginContainer/HBoxContainer/ActionButton"), NodePath("PanelContainer/MarginContainer/HBoxContainer/ItemButton"), NodePath("PanelContainer/MarginContainer/HBoxContainer/RunButton") ]
 
 [node name="LeftEdge" type="TextureRect" parent="."]
 margin_right = 14.0

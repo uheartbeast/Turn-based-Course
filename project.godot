@@ -29,7 +29,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Battle/BattleCamera.gd"
 }, {
-"base": "HBoxContainer",
+"base": "FocusMenu",
 "class": "BattleMenu",
 "language": "GDScript",
 "path": "res://UI/BattleMenu.gd"
@@ -99,7 +99,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://ResourceButton.gd"
 }, {
-"base": "PanelContainer",
+"base": "FocusMenu",
 "class": "ScrollList",
 "language": "GDScript",
 "path": "res://UI/ScrollList.gd"

@@ -1,4 +1,4 @@
-extends PanelContainer
+extends FocusMenu
 class_name ScrollList
 
 const ResourceButtonScene := preload("res://UI/ResourceButton.tscn")
@@ -7,9 +7,6 @@ onready var scroll_container := $"%ScrollContainer"
 onready var button_container := $"%ButtonContainer"
 
 signal resource_selected(resource)
-
-func grab_button_focus() -> void:
-	button_container.get_child(0).grab_focus()
 
 func fill(resource_list : Array) -> void:
 	for resource in resource_list:
@@ -21,12 +18,14 @@ func fill(resource_list : Array) -> void:
 func add_resource_button() -> ResourceButton:
 	var resource_button : ResourceButton = ResourceButtonScene.instance()
 	button_container.add_child(resource_button)
+	focus_nodes.append(resource_button.get_path())
 	resource_button.connect("resource_selected", self, "_on_resource_selected")
 	return resource_button
 
 func clear() -> void:
 	for button in button_container.get_children():
 		button.queue_free()
+	focus_nodes.clear()
 
 func connect_scroll_children() -> void:
 	for button in button_container.get_children():
