@@ -15,7 +15,7 @@ focus_nodes = [ NodePath("MarginContainer/VBoxContainer/UseButton"), NodePath("M
 margin_left = 4.0
 margin_top = 4.0
 margin_right = 33.0
-margin_bottom = 38.0
+margin_bottom = 35.0
 custom_constants/margin_right = 4
 custom_constants/margin_top = 4
 custom_constants/margin_left = 6
@@ -25,16 +25,17 @@ custom_constants/margin_bottom = 4
 margin_left = 6.0
 margin_top = 4.0
 margin_right = 25.0
-margin_bottom = 30.0
+margin_bottom = 27.0
+custom_constants/separation = 1
 
 [node name="UseButton" parent="MarginContainer/VBoxContainer" instance=ExtResource( 3 )]
 margin_right = 19.0
 text = "Use"
 
 [node name="InfoButton" parent="MarginContainer/VBoxContainer" instance=ExtResource( 3 )]
-margin_top = 15.0
+margin_top = 12.0
 margin_right = 19.0
-margin_bottom = 26.0
+margin_bottom = 23.0
 text = "Info"
 
 [connection signal="button_down" from="MarginContainer/VBoxContainer/UseButton" to="." method="_on_UseButton_button_down"]

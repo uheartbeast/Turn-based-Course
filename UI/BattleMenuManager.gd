@@ -7,6 +7,7 @@ var uiStack := UIStack.new()
 onready var battle_menu := $"%BattleMenu"
 onready var action_list := $"%ActionList"
 onready var item_list := $"%ItemList"
+onready var context_menu = $"%ContextMenu"
 
 func _ready() -> void:
 	action_list.fill(elizabethStats.battle_actions)
@@ -26,8 +27,15 @@ func _on_BattleMenu_menu_option_selected(option : int) -> void:
 		BattleMenu.ITEM:
 			uiStack.push(item_list)
 
-func _on_ActionList_resource_selected(resource : BattleAction):
+func _on_ActionList_resource_selected(resource : BattleAction) -> void:
+	uiStack.push(context_menu)
 	print(resource.name)
 
-func _on_ItemList_resource_selected(resource : Item):
+func _on_ItemList_resource_selected(resource : Item) -> void:
+	uiStack.push(context_menu)
 	print(resource.name)
+
+func _on_ContextMenu_option_selected(option : int) -> void:
+	match option:
+		ContextMenu.USE: print("use")
+		ContextMenu.INFO: print("info")
