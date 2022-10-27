@@ -61,6 +61,9 @@ func use_item(target: BattleUnit, item: Item) -> void:
 
 func deal_damage(target: BattleUnit, battle_action : DamageBattleAction) -> void:
 	var damage = ((stats.level*3 + (1-target.stats.defense * 0.05)) / 2) * ((stats.attack + battle_action.damage / 5) / 6)
+	if target.defend:
+		target.defend = false
+		damage = round(damage / 2)
 	target.stats.health -= damage
 
 func take_hit(attacker: BattleUnit) -> void:
