@@ -66,6 +66,12 @@ func _on_ally_turn_started() -> void:
 	if selected_resource is DamageBattleAction:
 		battle_camera.focus_target(enemy_camera_position, ZOOM_IN)
 		player_battle_unit.melee_attack(enemy_battle_unit, selected_resource)
+	elif selected_resource.name == "Defend":
+		asyncTurnPool.add(self)
+		player_battle_unit.defend = true
+		timer.start(1.0)
+		yield(timer, "timeout")
+		asyncTurnPool.remove(self)
 	elif selected_resource is Item:
 		player_battle_unit.use_item(player_battle_unit, selected_resource)
 	elif selected_resource.name == "Run":

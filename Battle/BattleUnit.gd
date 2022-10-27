@@ -9,8 +9,10 @@ var asyncTurnPool : AsyncTurnPool = ReferenceStash.asyncTurnPool
 export(Resource) var stats setget set_stats
 
 var battle_animations : BattleAnimations
+var defend : bool = false setget set_defend
 
 onready var root_position := global_position
+onready var battle_shield := $BattleShield
 
 func set_stats(value : ClassStats) -> void:
 	stats = value
@@ -18,6 +20,10 @@ func set_stats(value : ClassStats) -> void:
 	if battle_animations is BattleAnimations: battle_animations.queue_free()
 	battle_animations = stats.battle_animations.instance()
 	add_child(battle_animations)
+
+func set_defend(value : bool ) -> void:
+	defend = value
+	battle_shield.visible = defend
 
 func melee_attack(target : BattleUnit, battle_action : DamageBattleAction) -> void:
 	asyncTurnPool.add(self)
