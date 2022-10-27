@@ -14,7 +14,7 @@
 [ext_resource path="res://ClassStats/ElizabethClassStats.tres" type="Resource" id=12]
 [ext_resource path="res://UI/BattleUnitInfo.tscn" type="PackedScene" id=13]
 [ext_resource path="res://UI/LevelUpUI.tscn" type="PackedScene" id=14]
-[ext_resource path="res://UI/BattleMenu.tscn" type="PackedScene" id=15]
+[ext_resource path="res://UI/BattleMenuManager.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Battle/BattleCamera.tscn" type="PackedScene" id=16]
 
 [sub_resource type="Animation" id=1]
@@ -249,9 +249,8 @@ margin_top = 75.0
 margin_right = 220.0
 margin_bottom = 105.0
 
-[node name="BattleMenu" parent="BattleUI" instance=ExtResource( 15 )]
+[node name="BattleMenuManager" parent="BattleUI" instance=ExtResource( 15 )]
 unique_name_in_owner = true
-visible = false
 
 [node name="YellowFlash" type="CanvasLayer" parent="."]
 layer = 100

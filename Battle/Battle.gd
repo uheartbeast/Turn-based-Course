@@ -13,7 +13,7 @@ onready var timer := $Timer
 onready var player_battle_unit_info := $BattleUI/PlayerBattleUnitInfo
 onready var enemy_battle_unit_info := $BattleUI/EnemyBattleUnitInfo
 onready var level_up_ui = $"%LevelUpUI"
-onready var battle_menu = $"%BattleMenu"
+onready var battle_menu_manager = $"%BattleMenuManager"
 onready var battle_camera = $BattleCamera
 
 onready var center_position : Vector2 = $CenterRoot/CenterPoint.rect_global_position
@@ -60,19 +60,15 @@ func _on_ally_turn_started() -> void:
 		get_tree().quit()
 		return
 	
-	yield(battle_menu.show_menu(), "completed")
-	battle_menu.grab_action_focus()
-	var option : int = yield(battle_menu, "menu_option_selected")
-	battle_menu.hide_menu()
-	match option:
-		BattleMenu.ACTION:
-			battle_camera.focus_target(enemy_camera_position, ZOOM_IN)
-			var battle_action = player_battle_unit.stats.battle_actions.front()
-			player_battle_unit.melee_attack(enemy_battle_unit, battle_action)
-		BattleMenu.ITEM:
-			turnManager.advance_turn()
-		BattleMenu.RUN:
-			exit_battle()
+	yield(battle_menu_manager.show_battle_menu(), "completed")
+	var selected_resource : Resource = yield(battle_menu_manager, "battle_menu_resource_selected")
+	
+	if selected_resource is DamageBattleAction:
+		battle_camera.focus_target(enemy_camera_position, ZOOM_IN)
+		var battle_action = player_battle_unit.stats.battle_actions.front()
+		player_battle_unit.melee_attack(enemy_battle_unit, battle_action)
+	elif selected_resource.name == "Run":
+		exit_battle()
 
 func _on_enemy_turn_started() -> void:
 	if not is_instance_valid(enemy_battle_unit) or enemy_battle_unit.is_queued_for_deletion():
