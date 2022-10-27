@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Sprites/ElizabethBattle.png" type="Texture" id=1]
 [ext_resource path="res://Battle/BattleAnimations.gd" type="Script" id=2]
@@ -121,6 +121,22 @@ tracks/0/keys = {
 "values": [ 19, 20, 21, 22 ]
 }
 
+[sub_resource type="Animation" id=9]
+resource_name = "ItemRelease"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 23, 24, 25, 26 ]
+}
+
 [sub_resource type="Animation" id=4]
 resource_name = "Melee"
 length = 0.4
@@ -206,6 +222,7 @@ anims/Death = SubResource( 7 )
 anims/Hit = SubResource( 6 )
 anims/Idle = SubResource( 1 )
 anims/ItemAnticipation = SubResource( 8 )
+anims/ItemRelease = SubResource( 9 )
 anims/Melee = SubResource( 4 )
 anims/RESET = SubResource( 2 )
 anims/Return = SubResource( 5 )
