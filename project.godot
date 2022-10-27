@@ -108,6 +108,11 @@ _global_script_classes=[ {
 "class": "TurnManager",
 "language": "GDScript",
 "path": "res://TurnManager.gd"
+}, {
+"base": "Resource",
+"class": "UIStack",
+"language": "GDScript",
+"path": "res://UI/UIStack.gd"
 } ]
 _global_script_class_icons={
 "AsyncTurnPool": "",
@@ -129,7 +134,8 @@ _global_script_class_icons={
 "PlayerClassStats": "",
 "ResourceButton": "",
 "ScrollList": "",
-"TurnManager": ""
+"TurnManager": "",
+"UIStack": ""
 }
 
 [application]
