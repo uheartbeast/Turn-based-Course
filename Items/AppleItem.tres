@@ -1,6 +1,6 @@
 [gd_resource type="Resource" load_steps=3 format=2]
 
-[ext_resource path="res://Items/Item.gd" type="Script" id=1]
+[ext_resource path="res://Items/HealingItem.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Apple.png" type="Texture" id=2]
 
 [resource]
@@ -9,3 +9,4 @@ name = "Apple"
 description = "A small fruit that heals 2 health."
 amount = 1
 overworld_sprite = ExtResource( 2 )
+heal_amount = 2

@@ -65,8 +65,9 @@ func _on_ally_turn_started() -> void:
 	
 	if selected_resource is DamageBattleAction:
 		battle_camera.focus_target(enemy_camera_position, ZOOM_IN)
-		var battle_action = player_battle_unit.stats.battle_actions.front()
-		player_battle_unit.melee_attack(enemy_battle_unit, battle_action)
+		player_battle_unit.melee_attack(enemy_battle_unit, selected_resource)
+	elif selected_resource is Item:
+		player_battle_unit.use_item(player_battle_unit, selected_resource)
 	elif selected_resource.name == "Run":
 		exit_battle()
 
