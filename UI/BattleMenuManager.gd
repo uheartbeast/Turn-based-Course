@@ -19,7 +19,6 @@ signal battle_menu_resource_selected(selected_resource)
 
 func _ready() -> void:
 	action_list.fill(elizabethStats.battle_actions)
-	item_list.fill(elizabethStats.inventory.items)
 
 func show_battle_menu() -> void:
 	yield(battle_menu.show_menu(), "completed")
