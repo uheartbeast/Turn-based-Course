@@ -4,8 +4,8 @@
 [ext_resource path="res://UI/InfoMenu.gd" type="Script" id=2]
 
 [node name="InfoMenu" type="PanelContainer"]
-margin_right = 14.0
-margin_bottom = 14.0
+margin_right = 112.0
+margin_bottom = 28.0
 rect_min_size = Vector2( 112, 0 )
 theme = ExtResource( 1 )
 script = ExtResource( 2 )

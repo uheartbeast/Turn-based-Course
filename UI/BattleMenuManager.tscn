@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://UI/BattleMenuManager.gd" type="Script" id=1]
 [ext_resource path="res://UI/BattleMenu.tscn" type="PackedScene" id=2]
 [ext_resource path="res://UI/ScrollList.tscn" type="PackedScene" id=3]
 [ext_resource path="res://UI/ContextMenu.tscn" type="PackedScene" id=4]
+[ext_resource path="res://UI/InfoMenu.tscn" type="PackedScene" id=5]
 
 [node name="BattleMenuManager" type="Control"]
 anchor_right = 1.0
@@ -28,19 +29,27 @@ unique_name_in_owner = true
 visible = false
 margin_right = 18.0
 margin_bottom = 44.0
+size_flags_vertical = 8
 
 [node name="ItemList" parent="BattleMenu/SubmenuPosition/MenuContainer" instance=ExtResource( 3 )]
 unique_name_in_owner = true
 visible = false
 margin_right = 18.0
 margin_bottom = 44.0
+size_flags_vertical = 8
 
 [node name="ContextMenu" parent="BattleMenu/SubmenuPosition/MenuContainer" instance=ExtResource( 4 )]
 unique_name_in_owner = true
 visible = false
 margin_right = 37.0
 margin_bottom = 44.0
-size_flags_vertical = 0
+size_flags_vertical = 8
+
+[node name="InfoMenu" parent="BattleMenu/SubmenuPosition/MenuContainer" instance=ExtResource( 5 )]
+unique_name_in_owner = true
+visible = false
+margin_right = 156.0
+margin_bottom = 44.0
 
 [connection signal="menu_option_selected" from="BattleMenu" to="." method="_on_BattleMenu_menu_option_selected"]
 [connection signal="resource_selected" from="BattleMenu/SubmenuPosition/MenuContainer/ActionList" to="." method="_on_ActionList_resource_selected"]
