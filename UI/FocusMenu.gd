@@ -13,8 +13,6 @@ func grab_focus() -> void:
 		return
 	
 	var focus_node = get_node(focus_nodes.front())
-	if focus_node is ResourceButton:
-		print(focus_node.resource.name)
 	focus_node.grab_focus()
 
 func release_focus() -> void:
