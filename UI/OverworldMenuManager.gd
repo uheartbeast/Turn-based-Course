@@ -15,10 +15,20 @@ onready var timer := $Timer
 
 var item_resource : Item
 
+func _ready() -> void:
+	Events.connect("request_show_overworld_menu", self, "_on_request_show_overworld_menu")
+
 func _unhandled_input(event : InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
 		if not uiStack.empty():
 			uiStack.pop()
+			if uiStack.empty():
+				get_tree().set_input_as_handled()
+				get_tree().paused = false
+
+func _on_request_show_overworld_menu() -> void:
+	uiStack.push(overworld_menu)
+	get_tree().paused = true
 
 func _on_OverworldMenu_option_selected(option : int) -> void:
 	match option:
@@ -28,6 +38,7 @@ func _on_OverworldMenu_option_selected(option : int) -> void:
 			uiStack.push(item_list)
 		OverworldMenu.EXIT:
 			uiStack.pop()
+			get_tree().paused = false
 
 func _on_ItemList_resource_selected(resource : Item) -> void:
 	item_resource = resource

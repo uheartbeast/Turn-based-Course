@@ -34,6 +34,9 @@ func _unhandled_input(event : InputEvent) -> void:
 			if not interactable is Interactable: continue
 			interactable._run_interaction()
 			get_tree().set_input_as_handled()
+	
+	if event.is_action_pressed("ui_cancel"):
+		Events.emit_signal("request_show_overworld_menu")
 
 func is_moving() -> bool:
 	return velocity != Vector2.ZERO
