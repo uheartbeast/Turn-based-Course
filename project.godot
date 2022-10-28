@@ -84,6 +84,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Math.gd"
 }, {
+"base": "DamageBattleAction",
+"class": "MeleeBattleAction",
+"language": "GDScript",
+"path": "res://BattleActions/MeleeBattleAction.gd"
+}, {
 "base": "Interactable",
 "class": "NPC",
 "language": "GDScript",
@@ -103,6 +108,11 @@ _global_script_classes=[ {
 "class": "Projectile",
 "language": "GDScript",
 "path": "res://Projectiles/Projectile.gd"
+}, {
+"base": "DamageBattleAction",
+"class": "RangedBattleAction",
+"language": "GDScript",
+"path": "res://BattleActions/RangedBattleAction.gd"
 }, {
 "base": "ParentButton",
 "class": "ResourceButton",
@@ -140,10 +150,12 @@ _global_script_class_icons={
 "Inventory": "",
 "Item": "",
 "Math": "",
+"MeleeBattleAction": "",
 "NPC": "",
 "ParentButton": "",
 "PlayerClassStats": "",
 "Projectile": "",
+"RangedBattleAction": "",
 "ResourceButton": "",
 "ScrollList": "",
 "TurnManager": "",

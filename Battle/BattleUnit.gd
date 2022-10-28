@@ -25,7 +25,7 @@ func set_defend(value : bool ) -> void:
 	defend = value
 	battle_shield.visible = defend
 
-func melee_attack(target : BattleUnit, battle_action : DamageBattleAction) -> void:
+func melee_attack(target : BattleUnit, battle_action : MeleeBattleAction) -> void:
 	asyncTurnPool.add(self)
 	z_index = 10
 	battle_animations.play("Approach")
@@ -49,12 +49,12 @@ func melee_attack(target : BattleUnit, battle_action : DamageBattleAction) -> vo
 	z_index = 0
 	asyncTurnPool.remove(self)
 
-func ranged_attack(target: BattleUnit, battle_action: DamageBattleAction) -> void:
+func ranged_attack(target: BattleUnit, battle_action: RangedBattleAction) -> void:
 	asyncTurnPool.add(self)
 	battle_animations.play("RangedAnticipation")
 	yield(battle_animations, "animation_finished")
 	
-	var projectile = load("res://Projectiles/Fireball.tscn").instance()
+	var projectile = battle_action.projectile.instance()
 	add_child(projectile)
 	projectile.global_position = battle_animations.get_emission_position()
 	projectile.move_to(target)

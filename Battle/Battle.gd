@@ -63,13 +63,11 @@ func _on_ally_turn_started() -> void:
 	yield(battle_menu_manager.show_battle_menu(), "completed")
 	var selected_resource : Resource = yield(battle_menu_manager, "battle_menu_resource_selected")
 	
-	if selected_resource is DamageBattleAction:
-		match selected_resource.type:
-			DamageBattleAction.Type.MELEE:
-				battle_camera.focus_target(enemy_camera_position, ZOOM_IN)
-				player_battle_unit.melee_attack(enemy_battle_unit, selected_resource)
-			DamageBattleAction.Type.RANGED:
-				player_battle_unit.ranged_attack(enemy_battle_unit, selected_resource)
+	if selected_resource is MeleeBattleAction:
+		battle_camera.focus_target(enemy_camera_position, ZOOM_IN)
+		player_battle_unit.melee_attack(enemy_battle_unit, selected_resource)
+	elif selected_resource is RangedBattleAction:
+		player_battle_unit.ranged_attack(enemy_battle_unit, selected_resource)
 	elif selected_resource.name == "Defend":
 		asyncTurnPool.add(self)
 		player_battle_unit.defend = true
