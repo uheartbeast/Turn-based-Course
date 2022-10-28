@@ -102,7 +102,7 @@ _global_script_classes=[ {
 "base": "MarginContainer",
 "class": "OverworldMenuManager",
 "language": "GDScript",
-"path": "res://UI/OverwoldMenuManager.gd"
+"path": "res://UI/OverworldMenuManager.gd"
 }, {
 "base": "Button",
 "class": "ParentButton",
