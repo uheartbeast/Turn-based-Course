@@ -5,17 +5,19 @@
 [ext_resource path="res://UI/ParentButton.tscn" type="PackedScene" id=3]
 
 [node name="OverworldMenu" type="PanelContainer"]
+pause_mode = 2
 margin_right = 14.0
 margin_bottom = 14.0
 rect_min_size = Vector2( 48, 0 )
 theme = ExtResource( 1 )
 script = ExtResource( 2 )
+focus_nodes = [ NodePath("MarginContainer/VBoxContainer/StatsButton"), NodePath("MarginContainer/VBoxContainer/ItemsButton"), NodePath("MarginContainer/VBoxContainer/ExitButton") ]
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 margin_left = 4.0
 margin_top = 4.0
 margin_right = 44.0
-margin_bottom = 53.0
+margin_bottom = 47.0
 custom_constants/margin_right = 4
 custom_constants/margin_top = 4
 custom_constants/margin_left = 6
@@ -25,20 +27,25 @@ custom_constants/margin_bottom = 4
 margin_left = 6.0
 margin_top = 4.0
 margin_right = 36.0
-margin_bottom = 45.0
+margin_bottom = 39.0
+custom_constants/separation = 1
 
 [node name="StatsButton" parent="MarginContainer/VBoxContainer" instance=ExtResource( 3 )]
 margin_right = 30.0
 text = "Stats"
 
 [node name="ItemsButton" parent="MarginContainer/VBoxContainer" instance=ExtResource( 3 )]
-margin_top = 15.0
+margin_top = 12.0
 margin_right = 30.0
-margin_bottom = 26.0
+margin_bottom = 23.0
 text = "Items"
 
 [node name="ExitButton" parent="MarginContainer/VBoxContainer" instance=ExtResource( 3 )]
-margin_top = 30.0
+margin_top = 24.0
 margin_right = 30.0
-margin_bottom = 41.0
+margin_bottom = 35.0
 text = "Exit"
+
+[connection signal="button_down" from="MarginContainer/VBoxContainer/StatsButton" to="." method="_on_StatsButton_button_down"]
+[connection signal="button_down" from="MarginContainer/VBoxContainer/ItemsButton" to="." method="_on_ItemsButton_button_down"]
+[connection signal="button_down" from="MarginContainer/VBoxContainer/ExitButton" to="." method="_on_ExitButton_button_down"]
