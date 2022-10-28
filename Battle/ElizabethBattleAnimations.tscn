@@ -266,3 +266,6 @@ modulate = Color( 0, 0, 0, 1 )
 show_behind_parent = true
 position = Vector2( -25, 51 )
 texture = ExtResource( 3 )
+
+[node name="EmissionPoint" type="Position2D" parent="."]
+position = Vector2( 11, 18 )

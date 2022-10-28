@@ -168,3 +168,5 @@ anims/Idle = SubResource( 1 )
 anims/Melee = SubResource( 4 )
 anims/RESET = SubResource( 2 )
 anims/Return = SubResource( 5 )
+
+[node name="EmissionPoint" type="Position2D" parent="."]

@@ -2,12 +2,16 @@ extends Sprite
 class_name BattleAnimations
 
 onready var animation_player := $AnimationPlayer
+onready var emission_point := $EmissionPoint
 
 signal animation_finished
 
 func _ready() -> void:
 	animation_player.connect("animation_finished", self, "_on_animation_finished")
-	
+
+func get_emission_position() -> Vector2:
+	return emission_point.global_position
+
 func get_current_animation_length() -> float:
 	return animation_player.current_animation_length / animation_player.playback_speed
 
