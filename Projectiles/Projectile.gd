@@ -6,6 +6,7 @@ var asyncTurnPool : AsyncTurnPool = ReferenceStash.asyncTurnPool
 export(float) var travel_duration := 0.5
 
 signal contact
+signal collision_animation_finished
 
 func move_to(target: BattleUnit, trans : int = Tween.TRANS_LINEAR, easing: int = Tween.EASE_IN) -> void:
 	z_index = 25
@@ -15,7 +16,8 @@ func move_to(target: BattleUnit, trans : int = Tween.TRANS_LINEAR, easing: int =
 	tween.tween_property(self, "global_position", target_position, travel_duration).from_current()
 	yield(tween, "finished")
 	emit_signal("contact")
-	yield(_animate_collision(), "completed")
+	_animate_collision()
+	yield(self, "collision_animation_finished")
 	asyncTurnPool.remove(self)
 	queue_free()
 
