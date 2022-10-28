@@ -53,12 +53,16 @@ func ranged_attack(target: BattleUnit, battle_action: DamageBattleAction) -> voi
 	asyncTurnPool.add(self)
 	battle_animations.play("RangedAnticipation")
 	yield(battle_animations, "animation_finished")
-	deal_damage(target, battle_action)
-	target.take_hit(self)
-	var projectile = load("res://Projectiles/Projectile.tscn").instance()
-	get_tree().current_scene.add_child(projectile)
+	
+	var projectile = load("res://Projectiles/Fireball.tscn").instance()
+	add_child(projectile)
 	projectile.global_position = battle_animations.get_emission_position()
 	projectile.move_to(target)
+	yield(projectile, "contact")
+	
+	deal_damage(target, battle_action)
+	target.take_hit(self)
+	
 	battle_animations.play("RangedRelease")
 	yield(battle_animations, "animation_finished")
 	battle_animations.play("Idle")
