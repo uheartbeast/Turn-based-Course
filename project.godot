@@ -99,6 +99,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://UI/OverworldMenu.gd"
 }, {
+"base": "MarginContainer",
+"class": "OverworldMenuManager",
+"language": "GDScript",
+"path": "res://UI/OverwoldMenuManager.gd"
+}, {
 "base": "Button",
 "class": "ParentButton",
 "language": "GDScript",
@@ -158,6 +163,7 @@ _global_script_class_icons={
 "MeleeBattleAction": "",
 "NPC": "",
 "OverworldMenu": "",
+"OverworldMenuManager": "",
 "ParentButton": "",
 "PlayerClassStats": "",
 "Projectile": "",
