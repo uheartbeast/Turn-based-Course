@@ -1,0 +1,84 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://UI/DefaultTheme.tres" type="Theme" id=1]
+[ext_resource path="res://UI/ValueBar.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Sprites/ExperienceBar.png" type="Texture" id=3]
+[ext_resource path="res://UI/ElizabethStats.gd" type="Script" id=4]
+
+[node name="ElizabethStats" type="PanelContainer"]
+margin_right = 14.0
+margin_bottom = 14.0
+theme = ExtResource( 1 )
+script = ExtResource( 4 )
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 144.0
+margin_bottom = 70.0
+custom_constants/margin_right = 4
+custom_constants/margin_top = 4
+custom_constants/margin_left = 4
+custom_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 136.0
+margin_bottom = 62.0
+
+[node name="Name" type="Label" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+margin_right = 132.0
+margin_bottom = 11.0
+text = "Name : Elizabeth"
+
+[node name="Level" type="Label" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+margin_top = 15.0
+margin_right = 132.0
+margin_bottom = 26.0
+text = "Level : 1"
+
+[node name="Health" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+margin_top = 30.0
+margin_right = 132.0
+margin_bottom = 42.0
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Health"]
+margin_right = 60.0
+margin_bottom = 11.0
+size_flags_horizontal = 3
+text = "Health :"
+
+[node name="HealthBar" parent="MarginContainer/VBoxContainer/Health" instance=ExtResource( 2 )]
+unique_name_in_owner = true
+margin_left = 64.0
+margin_right = 132.0
+
+[node name="Experience" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+margin_top = 46.0
+margin_right = 132.0
+margin_bottom = 58.0
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Experience"]
+margin_right = 60.0
+margin_bottom = 11.0
+size_flags_horizontal = 3
+text = "Experience :"
+
+[node name="ExperienceBar" parent="MarginContainer/VBoxContainer/Experience" instance=ExtResource( 2 )]
+unique_name_in_owner = true
+margin_left = 64.0
+margin_right = 132.0
+
+[node name="Decrease" parent="MarginContainer/VBoxContainer/Experience/ExperienceBar" index="0"]
+visible = false
+
+[node name="Increase" parent="MarginContainer/VBoxContainer/Experience/ExperienceBar" index="1"]
+visible = false
+
+[node name="Actual" parent="MarginContainer/VBoxContainer/Experience/ExperienceBar" index="2"]
+texture_progress = ExtResource( 3 )
+
+[editable path="MarginContainer/VBoxContainer/Experience/ExperienceBar"]
