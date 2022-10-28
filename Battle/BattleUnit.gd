@@ -49,6 +49,17 @@ func melee_attack(target : BattleUnit, battle_action : DamageBattleAction) -> vo
 	z_index = 0
 	asyncTurnPool.remove(self)
 
+func ranged_attack(target: BattleUnit, battle_action: DamageBattleAction) -> void:
+	asyncTurnPool.add(self)
+	battle_animations.play("RangedAnticipation")
+	yield(battle_animations, "animation_finished")
+	deal_damage(target, battle_action)
+	target.take_hit(self)
+	battle_animations.play("RangedRelease")
+	yield(battle_animations, "animation_finished")
+	battle_animations.play("Idle")
+	asyncTurnPool.remove(self)
+
 func use_item(target: BattleUnit, item: Item) -> void:
 	asyncTurnPool.add(self)
 	battle_animations.play("ItemAnticipation")
