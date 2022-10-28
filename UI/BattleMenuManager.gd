@@ -52,8 +52,9 @@ func _on_ItemList_resource_selected(resource : Item) -> void:
 func _on_ContextMenu_option_selected(option : int) -> void:
 	match option:
 		ContextMenu.USE:
-			uiStack.clear()
-			battle_menu.show()
+			uiStack.pop()
+			uiStack.pop()
+			battle_menu.release_focus()
 			battle_menu.hide_menu()
 			if selected_resource is Item:
 				inventory.remove_item(selected_resource)
