@@ -99,6 +99,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://ClassStats/PlayerClassStats.gd"
 }, {
+"base": "Node2D",
+"class": "Projectile",
+"language": "GDScript",
+"path": "res://Projectiles/Projectile.gd"
+}, {
 "base": "ParentButton",
 "class": "ResourceButton",
 "language": "GDScript",
@@ -138,6 +143,7 @@ _global_script_class_icons={
 "NPC": "",
 "ParentButton": "",
 "PlayerClassStats": "",
+"Projectile": "",
 "ResourceButton": "",
 "ScrollList": "",
 "TurnManager": "",

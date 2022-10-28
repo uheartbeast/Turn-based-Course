@@ -55,6 +55,10 @@ func ranged_attack(target: BattleUnit, battle_action: DamageBattleAction) -> voi
 	yield(battle_animations, "animation_finished")
 	deal_damage(target, battle_action)
 	target.take_hit(self)
+	var projectile = load("res://Projectiles/Projectile.tscn").instance()
+	get_tree().current_scene.add_child(projectile)
+	projectile.global_position = global_position
+	projectile.move_to(target)
 	battle_animations.play("RangedRelease")
 	yield(battle_animations, "animation_finished")
 	battle_animations.play("Idle")
