@@ -59,6 +59,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://BattleActions/DamageBattleAction.gd"
 }, {
+"base": "Area2D",
+"class": "Door",
+"language": "GDScript",
+"path": "res://World/Door.gd"
+}, {
 "base": "Control",
 "class": "FocusMenu",
 "language": "GDScript",
@@ -165,6 +170,7 @@ _global_script_class_icons={
 "ClassStats": "",
 "ContextMenu": "",
 "DamageBattleAction": "",
+"Door": "",
 "FocusMenu": "",
 "HealingItem": "",
 "Interactable": "",
@@ -198,6 +204,7 @@ SceneStack="*res://SceneStack.gd"
 ReferenceStash="*res://ReferenceStash.gd"
 Events="*res://Events.gd"
 GlobalUi="*res://UI/GlobalUI.tscn"
+LevelSwapper="*res://LevelSwapper.gd"
 
 [display]
 
