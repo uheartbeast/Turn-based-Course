@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://World/CameraLimits.gd" type="Script" id=1]
+
+[node name="CameraLimits" type="ColorRect"]
+self_modulate = Color( 1, 1, 1, 0.196078 )
+margin_right = 107.0
+margin_bottom = 57.0
+script = ExtResource( 1 )
