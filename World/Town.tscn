@@ -58,4 +58,7 @@ tile_data = PoolIntArray( -65534, 0, 0, -65533, 0, 1, -65532, 0, 1, -65531, 0, 1
 position = Vector2( -24, 128 )
 new_area = "res://World/WestMeadow.tscn"
 
+[node name="DropPoint" parent="Door" index="1"]
+position = Vector2( 16, 0 )
+
 [editable path="Door"]
