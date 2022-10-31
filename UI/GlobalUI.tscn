@@ -1,9 +1,16 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://UI/MessageDisplay.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Items/Vignette.png" type="Texture" id=2]
 
 [node name="GlobalUI" type="CanvasLayer"]
 layer = 128
 
 [node name="MessageDisplay" parent="." instance=ExtResource( 1 )]
 visible = false
+
+[node name="Vignette" type="TextureRect" parent="."]
+self_modulate = Color( 1, 1, 1, 0.392157 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 2 )
