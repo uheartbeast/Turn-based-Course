@@ -8,8 +8,13 @@ func _ready() -> void:
 	inventory.connect("item_changed", self, "_on_item_changed")
 	inventory.connect("item_removed", self, "_on_item_removed")
 
+func fill(resource_list : Array) -> void:
+	.fill(resource_list)
+	for button in button_container.get_children():
+		update_item_button_text(button)
+
 func update_item_button_text(button: ResourceButton) -> void:
-	button.text = button.resource.name
+	button.text = button.resource.name + " x" + str(button.resource.amount)
 
 func _on_item_added(item_index : int, item : Item) -> void:
 	var item_button : ResourceButton = add_resource_button()
