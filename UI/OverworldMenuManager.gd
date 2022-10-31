@@ -18,6 +18,20 @@ var item_resource : Item
 func _ready() -> void:
 	Events.connect("request_show_overworld_menu", self, "_on_request_show_overworld_menu")
 
+func use_healing_item(item: HealingItem) -> void:
+	set_process_unhandled_input(false)
+	uiStack.pop()
+	uiStack.pop()
+	uiStack.push(elizabeth_stats)
+	inventory.remove_item(item)
+	stats.health += item.heal_amount
+	yield(elizabeth_stats, "animation_finished")
+	timer.start(0.25)
+	yield(timer, "timeout")
+	uiStack.pop()
+	uiStack.push(item_list)
+	set_process_unhandled_input(true)
+
 func _unhandled_input(event : InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
 		if not uiStack.empty():
@@ -47,7 +61,12 @@ func _on_ItemList_resource_selected(resource : Item) -> void:
 func _on_ContextMenu_option_selected(option : int):
 	match option:
 		ContextMenu.USE:
-			print(item_resource.name)
+			if item_resource is HealingItem:
+				if stats.health < stats.max_health:
+					use_healing_item(item_resource)
+				else:
+					info_menu.text = "Your health is already full."
+					uiStack.push(info_menu)
 		ContextMenu.INFO:
 			info_menu.text = item_resource.description
 			uiStack.push(info_menu)
