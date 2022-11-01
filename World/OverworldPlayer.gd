@@ -8,9 +8,14 @@ const ENCOUNTER_METER_REDUCTION_AMOUNT := 75
 var velocity := Vector2.ZERO
 var encounter_meter := MAX_ENCOUNTER_METER
 var encounter_chance := MIN_ENCOUNTER_CHANCE
+var last_door_connection := -1
 
 onready var animated_sprite := $AnimatedSprite
 onready var interactable_detector := $InteractableDetector
+
+func _init() -> void:
+	if LevelSwapper.player is KinematicBody2D:
+		queue_free()
 
 func _ready() -> void:
 	interactable_detector.rotation = Vector2.DOWN.angle()
@@ -74,3 +79,13 @@ func animate_idle() -> void:
 		"WalkRight": animated_sprite.animation = "IdleRight"
 		"WalkUp": animated_sprite.animation = "IdleUp"
 		"WalkDown": animated_sprite.animation = "IdleDown"
+
+func go_to_new_area(new_area_path : String) -> void:
+	encounter_meter = MAX_ENCOUNTER_METER
+	LevelSwapper.level_swap(self, new_area_path)
+
+func _on_DoorDetector_area_entered(door : Area2D) -> void:
+	if not door is Door: return
+	if door.new_area.empty(): return
+	last_door_connection = door.connection
+	call_deferred("go_to_new_area", door.new_area)

@@ -16,3 +16,6 @@ func drop_player() -> void:
 	var parent := get_tree().current_scene
 	parent.add_child(player)
 	player.owner = parent
+	for door in get_tree().get_nodes_in_group("Doors"):
+		if door.connection != player.last_door_connection: continue
+		player.global_position = door.drop_point.global_position
