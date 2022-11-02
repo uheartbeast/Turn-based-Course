@@ -6,6 +6,11 @@ export(Resource) var item : Resource setget set_item
 
 onready var sprite := $Sprite
 
+onready var id := WorldStash.get_id(self)
+
+func _ready() -> void:
+	pass
+
 func set_item(value : Item) -> void:
 	item = value
 	call_deferred("set_sprite_texture", item)
