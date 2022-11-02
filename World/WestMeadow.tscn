@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://World/DirtTiles.tscn" type="PackedScene" id=1]
 [ext_resource path="res://World/GrassBackground.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://World/GrassTiles.tscn" type="PackedScene" id=8]
 [ext_resource path="res://World/SmallTree.tscn" type="PackedScene" id=9]
 [ext_resource path="res://World/Tree.tscn" type="PackedScene" id=10]
+[ext_resource path="res://World/Rock.tscn" type="PackedScene" id=11]
 
 [node name="WestMeadow" type="YSort"]
 
@@ -65,5 +66,14 @@ position = Vector2( 112, 200 )
 
 [node name="Tree4" parent="." instance=ExtResource( 10 )]
 position = Vector2( 320, 232 )
+
+[node name="Rock" parent="." instance=ExtResource( 11 )]
+position = Vector2( 40, 40 )
+
+[node name="Rock2" parent="." instance=ExtResource( 11 )]
+position = Vector2( 200, 184 )
+
+[node name="Rock3" parent="." instance=ExtResource( 11 )]
+position = Vector2( 296, 104 )
 
 [editable path="Door"]
