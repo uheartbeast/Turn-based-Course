@@ -206,6 +206,7 @@ Events="*res://Events.gd"
 GlobalUi="*res://UI/GlobalUI.tscn"
 LevelSwapper="*res://LevelSwapper.gd"
 WorldStash="*res://WorldStash.gd"
+Transition="*res://UI/Transition.tscn"
 
 [display]
 
