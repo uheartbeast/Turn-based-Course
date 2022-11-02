@@ -4,9 +4,10 @@
 
 [node name="Transition" type="CanvasLayer"]
 pause_mode = 2
+layer = 100
 script = ExtResource( 1 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0, 0, 0, 1 )
+color = Color( 0, 0, 0, 0 )

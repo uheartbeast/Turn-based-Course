@@ -49,8 +49,8 @@ func battle_won() -> void:
 	yield(timer, "timeout")
 
 func exit_battle() -> void:
-	timer.start(1.0)
-	yield(timer, "timeout")
+	yield(Transition.fade_to_color(Color.black), "completed")
+	Transition.fade_from_color(Color.black)
 	SceneStack.pop()
 
 func _on_ally_turn_started() -> void:

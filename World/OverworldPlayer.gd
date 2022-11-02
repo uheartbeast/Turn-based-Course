@@ -51,6 +51,10 @@ func encounter() -> void:
 	if random_encounters.empty(): return
 	random_encounters.shuffle()
 	ReferenceStash.encounter_class = random_encounters.front()
+	get_tree().paused = true
+	yield(Transition.fade_to_color(Color.white), "completed")
+	Transition.set_color(Color.transparent)
+	get_tree().paused = false
 	SceneStack.push("res://Battle/Battle.tscn")
 
 func encounter_check(delta : float) -> void:
@@ -81,8 +85,12 @@ func animate_idle() -> void:
 		"WalkDown": animated_sprite.animation = "IdleDown"
 
 func go_to_new_area(new_area_path : String) -> void:
+	get_tree().paused = true
+	yield(Transition.fade_to_color(Color.black), "completed")
+	get_tree().paused = false
 	encounter_meter = MAX_ENCOUNTER_METER
 	LevelSwapper.level_swap(self, new_area_path)
+	Transition.fade_from_color(Color.black)
 
 func _on_DoorDetector_area_entered(door : Area2D) -> void:
 	if not door is Door: return

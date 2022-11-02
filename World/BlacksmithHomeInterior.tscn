@@ -199,4 +199,14 @@ cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( -1, 0, 0, -65536, 0, 1, -65535, 0, 1, -65534, 0, 1, -65533, 0, 1, -65532, 0, 1, -65531, 0, 1, 65535, 0, 65536, 4, 0, 65537, 5, 0, 65537, 131071, 0, 65536, 65540, 0, 65537, 65541, 0, 196610, 196607, 0, 65536, 262143, 0, 65536 )
 
+[node name="Background" type="Node2D" parent="."]
+z_index = -2
+
+[node name="ColorRect" type="ColorRect" parent="Background"]
+margin_left = -264.0
+margin_top = -184.0
+margin_right = 448.0
+margin_bottom = 280.0
+color = Color( 0, 0, 0, 1 )
+
 [editable path="Door"]
