@@ -9,7 +9,8 @@ onready var sprite := $Sprite
 onready var id := WorldStash.get_id(self)
 
 func _ready() -> void:
-	pass
+	if WorldStash.retrieve(id, "freed"):
+		queue_free()
 
 func set_item(value : Item) -> void:
 	item = value
@@ -22,4 +23,5 @@ func set_sprite_texture(item : Item) -> void:
 func _run_interaction() -> void:
 	inventory.add_item(item)
 	Events.emit_signal("request_show_message", "You found a " + str(item.name) + ".")
+	WorldStash.stash(id, "freed", true)
 	queue_free()

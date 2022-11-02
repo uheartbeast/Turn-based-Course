@@ -7,6 +7,12 @@ var inventory : Inventory = ReferenceStash.inventory
 
 var has_apple := false
 
+onready var id := WorldStash.get_id(self)
+
+func _ready() -> void:
+	if WorldStash.retrieve(id, "has_apple"):
+		has_apple = true
+
 func _run_interaction() -> void:
 	if not has_apple:
 		Events.emit_signal("request_show_dialog", "Aaaaaah! I have a head ache.", character)
@@ -22,6 +28,7 @@ func _run_interaction() -> void:
 			Events.emit_signal("request_show_dialog", "Here it is.", ELIZABETH_CHARACTER)
 			yield(Events, "dialog_finished")
 			has_apple = true
+			WorldStash.stash(id, "has_apple", true)
 		else:
 			Events.emit_signal("request_show_dialog", "I'll look around for you.", ELIZABETH_CHARACTER)
 			yield(Events, "dialog_finished")
