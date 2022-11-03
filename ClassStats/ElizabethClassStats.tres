@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=7 format=2]
+[gd_resource type="Resource" load_steps=8 format=2]
 
 [ext_resource path="res://ClassStats/PlayerClassStats.gd" type="Script" id=1]
 [ext_resource path="res://Battle/ElizabethBattleAnimations.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://BattleActions/MeleeBattleAction.tres" type="Resource" id=4]
 [ext_resource path="res://Items/Inventory.tres" type="Resource" id=5]
 [ext_resource path="res://BattleActions/FireballBattleAction.tres" type="Resource" id=6]
+[ext_resource path="res://BattleActions/SonarAttack.tres" type="Resource" id=7]
 
 [resource]
 script = ExtResource( 1 )
@@ -13,6 +14,6 @@ name = "Elizabeth"
 max_health = 10
 attack = 8
 defense = 8
-battle_actions = [ ExtResource( 4 ), ExtResource( 3 ), ExtResource( 6 ) ]
+battle_actions = [ ExtResource( 4 ), ExtResource( 3 ), ExtResource( 6 ), ExtResource( 7 ) ]
 battle_animations = ExtResource( 2 )
 inventory = ExtResource( 5 )
