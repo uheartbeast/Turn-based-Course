@@ -58,10 +58,7 @@ func ranged_attack(target: BattleUnit, battle_action: RangedBattleAction) -> voi
 	add_child(projectile)
 	projectile.global_position = battle_animations.get_emission_position()
 	projectile.move_to(target)
-	yield(projectile, "contact")
-	
-	deal_damage(target, battle_action)
-	target.take_hit(self)
+	projectile.connect("contact", self, "ranged_attack_hit", [target, battle_action], CONNECT_ONESHOT)
 	
 	battle_animations.play("RangedRelease")
 	yield(battle_animations, "animation_finished")
@@ -77,6 +74,10 @@ func use_item(target: BattleUnit, item: Item) -> void:
 	yield(battle_animations, "animation_finished")
 	battle_animations.play("Idle")
 	asyncTurnPool.remove(self)
+
+func ranged_attack_hit(target : BattleUnit, battle_action: BattleAction) -> void:
+	deal_damage(target, battle_action)
+	target.take_hit(self)
 
 func deal_damage(target: BattleUnit, battle_action : DamageBattleAction) -> void:
 	var damage = ((stats.level*3 + (1-target.stats.defense * 0.05)) / 2) * ((stats.attack + battle_action.damage / 5) / 6)
