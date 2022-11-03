@@ -84,9 +84,14 @@ func _on_enemy_turn_started() -> void:
 		yield(battle_won(), "completed")
 		exit_battle()
 		return
-	battle_camera.focus_target(player_camera_position, ZOOM_IN)
+	
 	var battle_action = enemy_battle_unit.stats.battle_actions.front()
-	enemy_battle_unit.melee_attack(player_battle_unit, battle_action)
+	
+	if battle_action is MeleeBattleAction:
+		battle_camera.focus_target(player_camera_position, ZOOM_IN)
+		enemy_battle_unit.melee_attack(player_battle_unit, battle_action)
+	elif battle_action is RangedBattleAction:
+		enemy_battle_unit.ranged_attack(player_battle_unit, battle_action)
 
 func _on_async_turn_pool_turn_over() -> void:
 	yield(battle_camera.focus_target(center_position, ZOOM_DEFAULT), "completed")

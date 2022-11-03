@@ -105,7 +105,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id=3]
 resource_name = "RangedAnticipation"
-length = 1.1
+length = 1.2
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
@@ -113,10 +113,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18 ]
+"values": [ 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19 ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -142,6 +142,7 @@ hframes = 28
 
 [node name="AnimationPlayer" parent="." index="0"]
 autoplay = "Idle"
+playback_speed = 1.25
 anims/Death = SubResource( 6 )
 anims/Hit = SubResource( 5 )
 anims/Idle = SubResource( 1 )
