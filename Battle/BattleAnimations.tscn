@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Battle/BattleAnimations.gd" type="Script" id=1]
+
+[node name="BattleAnimations" type="Sprite"]
+script = ExtResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="EmissionPoint" type="Position2D" parent="."]
