@@ -8,6 +8,7 @@ export(int) var defense
 
 export(Array, Resource) var battle_actions
 export(PackedScene) var battle_animations
+export(Script) var ai : Script = null
 
 var level := 1
 var health := 1 setget set_health

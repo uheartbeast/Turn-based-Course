@@ -44,7 +44,7 @@ __meta__ = {
 position = Vector2( -8, 1 )
 frames = SubResource( 5 )
 animation = "Effect"
-frame = 3
+frame = 1
 playing = true
 
 [node name="Flame" type="CPUParticles2D" parent="."]

@@ -1,8 +1,9 @@
-[gd_resource type="Resource" load_steps=4 format=2]
+[gd_resource type="Resource" load_steps=5 format=2]
 
 [ext_resource path="res://ClassStats/ClassStats.gd" type="Script" id=1]
 [ext_resource path="res://Battle/SpiderBattleAnimations.tscn" type="PackedScene" id=2]
 [ext_resource path="res://BattleActions/MeleeBattleAction.tres" type="Resource" id=3]
+[ext_resource path="res://AIs/RandomActionAI.gd" type="Script" id=4]
 
 [resource]
 script = ExtResource( 1 )
@@ -12,3 +13,4 @@ attack = 7
 defense = 3
 battle_actions = [ ExtResource( 3 ) ]
 battle_animations = ExtResource( 2 )
+ai = ExtResource( 4 )

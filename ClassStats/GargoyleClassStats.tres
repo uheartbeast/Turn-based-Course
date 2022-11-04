@@ -1,8 +1,11 @@
-[gd_resource type="Resource" load_steps=4 format=2]
+[gd_resource type="Resource" load_steps=7 format=2]
 
 [ext_resource path="res://ClassStats/ClassStats.gd" type="Script" id=1]
 [ext_resource path="res://Battle/GargoyleBattleAnimations.tscn" type="PackedScene" id=2]
 [ext_resource path="res://BattleActions/SonarAttack.tres" type="Resource" id=3]
+[ext_resource path="res://BattleActions/DefendBattleAction.tres" type="Resource" id=4]
+[ext_resource path="res://BattleActions/FireballBattleAction.tres" type="Resource" id=5]
+[ext_resource path="res://AIs/RandomActionAI.gd" type="Script" id=6]
 
 [resource]
 script = ExtResource( 1 )
@@ -10,5 +13,6 @@ name = "Gargoyle"
 max_health = 10
 attack = 8
 defense = 6
-battle_actions = [ ExtResource( 3 ) ]
+battle_actions = [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ]
 battle_animations = ExtResource( 2 )
+ai = ExtResource( 6 )

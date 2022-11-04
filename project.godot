@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Node",
+"class": "AI",
+"language": "GDScript",
+"path": "res://AIs/AI.gd"
+}, {
 "base": "Resource",
 "class": "AsyncTurnPool",
 "language": "GDScript",
@@ -160,6 +165,7 @@ _global_script_classes=[ {
 "path": "res://UI/UIStack.gd"
 } ]
 _global_script_class_icons={
+"AI": "",
 "AsyncTurnPool": "",
 "BattleAction": "",
 "BattleAnimations": "",

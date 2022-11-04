@@ -6,6 +6,8 @@ const ZOOM_DEFAULT = Vector2.ONE
 var turnManager : TurnManager = ReferenceStash.turnManager
 var asyncTurnPool : AsyncTurnPool = ReferenceStash.asyncTurnPool
 
+var ai : AI
+
 onready var player_battle_unit := $PlayerPosition/PlayerBattleUnit
 onready var enemy_battle_unit := $EnemyPosition/EnemyBattleUnit
 onready var animation_player := $AnimationPlayer
@@ -26,6 +28,9 @@ func _ready() -> void:
 		enemy_battle_unit.stats = encounter_class.duplicate()
 	player_battle_unit_info.stats = player_battle_unit.stats
 	enemy_battle_unit_info.stats = enemy_battle_unit.stats
+	assert(enemy_battle_unit.stats.ai is Script)
+	ai = enemy_battle_unit.stats.ai.new()
+	add_child(ai)
 	yield(animation_player, "animation_finished")
 	turnManager.connect("ally_turn_started", self, "_on_ally_turn_started")
 	turnManager.connect("enemy_turn_started", self, "_on_enemy_turn_started")
@@ -85,13 +90,19 @@ func _on_enemy_turn_started() -> void:
 		exit_battle()
 		return
 	
-	var battle_action = enemy_battle_unit.stats.battle_actions.front()
+	var battle_action = ai._select_battle_action(enemy_battle_unit.stats)
 	
 	if battle_action is MeleeBattleAction:
 		battle_camera.focus_target(player_camera_position, ZOOM_IN)
 		enemy_battle_unit.melee_attack(player_battle_unit, battle_action)
 	elif battle_action is RangedBattleAction:
 		enemy_battle_unit.ranged_attack(player_battle_unit, battle_action)
+	elif battle_action.name == "Defend":
+		asyncTurnPool.add(self)
+		enemy_battle_unit.defend = true
+		timer.start(1.0)
+		yield(timer, "timeout")
+		asyncTurnPool.remove(self)
 
 func _on_async_turn_pool_turn_over() -> void:
 	yield(battle_camera.focus_target(center_position, ZOOM_DEFAULT), "completed")

@@ -1,8 +1,10 @@
-[gd_resource type="Resource" load_steps=4 format=2]
+[gd_resource type="Resource" load_steps=6 format=2]
 
 [ext_resource path="res://ClassStats/ClassStats.gd" type="Script" id=1]
 [ext_resource path="res://Battle/WerewolfBattleAnimations.tscn" type="PackedScene" id=2]
 [ext_resource path="res://BattleActions/MeleeBattleAction.tres" type="Resource" id=3]
+[ext_resource path="res://AIs/RandomActionAI.gd" type="Script" id=4]
+[ext_resource path="res://BattleActions/DefendBattleAction.tres" type="Resource" id=5]
 
 [resource]
 script = ExtResource( 1 )
@@ -10,5 +12,6 @@ name = "Werewolf"
 max_health = 6
 attack = 10
 defense = 7
-battle_actions = [ ExtResource( 3 ) ]
+battle_actions = [ ExtResource( 3 ), ExtResource( 5 ) ]
 battle_animations = ExtResource( 2 )
+ai = ExtResource( 4 )
