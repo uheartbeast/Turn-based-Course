@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/a_town_music.mp3-a5df9495d90507f542bc42e0ebcf833a.mp3str"
+
+[deps]
+
+source_file="res://MuiscAndSounds/a_town_music.mp3"
+dest_files=[ "res://.import/a_town_music.mp3-a5df9495d90507f542bc42e0ebcf833a.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
