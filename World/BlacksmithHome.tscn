@@ -17,6 +17,7 @@ polygon = PoolVector2Array( 0, 32, 0, 0, 64, 0, 64, 32, 32, 32, 32, 8, 16, 8, 16
 position = Vector2( 24, 0 )
 new_area = "res://World/BlacksmithHomeInterior.tscn"
 connection = 1
+door_sound_effect = true
 
 [node name="DropPoint" parent="Door" index="1"]
 position = Vector2( 0, 16 )

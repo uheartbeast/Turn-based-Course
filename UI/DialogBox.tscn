@@ -93,7 +93,7 @@ margin_bottom = 72.0
 texture = ExtResource( 2 )
 flip_h = true
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="Voice" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
 volume_db = -10.0
 bus = "Sounds"

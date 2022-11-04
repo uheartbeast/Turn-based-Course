@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Battle/BattleAnimations.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Sprites/SpiderBattle.png" type="Texture" id=2]
+[ext_resource path="res://MuiscAndSounds/a_spider_die.wav" type="AudioStream" id=3]
 
 [sub_resource type="Animation" id=3]
 resource_name = "Approach"
@@ -45,6 +46,20 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 2, 1.8, 1, 1 ), Color( 2, 1.8, 1, 1 ), Color( 2, 1.8, 1, 0 ) ]
+}
+tracks/2/type = "audio"
+tracks/2/path = NodePath("AudioStreamPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 3 )
+} ],
+"times": PoolRealArray( 0 )
 }
 
 [sub_resource type="Animation" id=6]
@@ -165,3 +180,7 @@ anims/Idle = SubResource( 1 )
 anims/Melee = SubResource( 4 )
 anims/RESET = SubResource( 2 )
 anims/Return = SubResource( 5 )
+
+[node name="AudioStreamPlayer" parent="." index="2"]
+stream = ExtResource( 3 )
+bus = "Sounds"

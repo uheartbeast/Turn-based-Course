@@ -12,6 +12,8 @@ var last_door_connection := -1
 
 onready var animated_sprite := $AnimatedSprite
 onready var interactable_detector := $InteractableDetector
+onready var enter_new_area := $Sounds/EnterNewArea
+onready var use_door := $Sounds/UseDoor
 
 func _init() -> void:
 	if LevelSwapper.player is KinematicBody2D:
@@ -96,4 +98,8 @@ func _on_DoorDetector_area_entered(door : Area2D) -> void:
 	if not door is Door: return
 	if door.new_area.empty(): return
 	last_door_connection = door.connection
+	if door.door_sound_effect:
+		use_door.play()
+	else:
+		enter_new_area.play()
 	call_deferred("go_to_new_area", door.new_area)

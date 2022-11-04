@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Battle/BattleUnit.gd" type="Script" id=1]
 [ext_resource path="res://Battle/BattleShield.tscn" type="PackedScene" id=2]
+[ext_resource path="res://MuiscAndSounds/a_impact.wav" type="AudioStream" id=3]
+[ext_resource path="res://MuiscAndSounds/a_impact_defend.wav" type="AudioStream" id=4]
+[ext_resource path="res://MuiscAndSounds/a_defend.wav" type="AudioStream" id=5]
 
 [node name="BattleUnit" type="Node2D"]
 script = ExtResource( 1 )
@@ -10,3 +13,15 @@ script = ExtResource( 1 )
 visible = false
 position = Vector2( 20, -24 )
 z_index = 5
+
+[node name="Impact" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+bus = "Sounds"
+
+[node name="ImpactDefend" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+bus = "Sounds"
+
+[node name="Defend" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+bus = "Sounds"

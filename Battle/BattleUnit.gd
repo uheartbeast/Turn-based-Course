@@ -13,6 +13,9 @@ var defend : bool = false setget set_defend
 
 onready var root_position := global_position
 onready var battle_shield := $BattleShield
+onready var impact := $Impact
+onready var impact_defend := $ImpactDefend
+onready var defend_sound := $Defend
 
 func set_stats(value : ClassStats) -> void:
 	stats = value
@@ -24,6 +27,8 @@ func set_stats(value : ClassStats) -> void:
 func set_defend(value : bool ) -> void:
 	defend = value
 	battle_shield.visible = defend
+	if defend == true:
+		defend_sound.play()
 
 func melee_attack(target : BattleUnit, battle_action : MeleeBattleAction) -> void:
 	asyncTurnPool.add(self)
@@ -82,8 +87,11 @@ func ranged_attack_hit(target : BattleUnit, battle_action: BattleAction) -> void
 func deal_damage(target: BattleUnit, battle_action : DamageBattleAction) -> void:
 	var damage = ((stats.level*3 + (1-target.stats.defense * 0.05)) / 2) * ((stats.attack + battle_action.damage / 5) / 6)
 	if target.defend:
+		impact_defend.play()
 		target.defend = false
 		damage = round(damage / 2)
+	else:
+		impact.play()
 	target.stats.health -= damage
 
 func take_hit(attacker: BattleUnit) -> void:

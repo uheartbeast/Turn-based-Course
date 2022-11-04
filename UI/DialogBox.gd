@@ -8,7 +8,7 @@ var pitch := 1.0
 
 onready var textbox := $"%Textbox"
 onready var portrait := $"%Portrait"
-onready var audio_stream_player := $AudioStreamPlayer
+onready var voice := $Voice
 
 func _ready() -> void:
 	Events.connect("request_show_dialog", self, "type_dialog")
@@ -47,6 +47,6 @@ func set_visible_characters(index : int) -> void:
 	textbox.visible_characters = index
 	if is_new_character and index < textbox.get_total_character_count():
 		var character : String = textbox.text.substr(textbox.visible_characters, 1)
-		audio_stream_player.pitch_scale = rand_range(pitch - 0.1, pitch + 0.1)
-		audio_stream_player.play()
+		voice.pitch_scale = rand_range(pitch - 0.1, pitch + 0.1)
+		voice.play()
 	

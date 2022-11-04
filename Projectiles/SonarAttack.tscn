@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Projectiles/SonarAttack.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/SonarAttack.png" type="Texture" id=2]
+[ext_resource path="res://MuiscAndSounds/a_sonar.wav" type="AudioStream" id=3]
 
 [sub_resource type="Animation" id=1]
 resource_name = "End"
@@ -82,5 +83,10 @@ anims/End = SubResource( 1 )
 anims/RESET = SubResource( 2 )
 anims/Repeat = SubResource( 3 )
 anims/Start = SubResource( 4 )
+
+[node name="SonarSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+autoplay = true
+bus = "Sounds"
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

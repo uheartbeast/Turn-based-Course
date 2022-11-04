@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Projectiles/Fireball.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Fireball.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/FlameParticle.png" type="Texture" id=3]
+[ext_resource path="res://MuiscAndSounds/a_fire.wav" type="AudioStream" id=4]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 2 )
@@ -44,7 +45,7 @@ __meta__ = {
 position = Vector2( -8, 1 )
 frames = SubResource( 5 )
 animation = "Effect"
-frame = 1
+frame = 3
 playing = true
 
 [node name="Flame" type="CPUParticles2D" parent="."]
@@ -87,3 +88,8 @@ angle_random = 1.0
 scale_amount = 0.8
 scale_amount_curve = SubResource( 6 )
 color_ramp = SubResource( 7 )
+
+[node name="FireSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+autoplay = true
+bus = "Sounds"
