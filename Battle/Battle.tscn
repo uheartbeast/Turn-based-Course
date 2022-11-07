@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Battle/Battle.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Sky.png" type="Texture" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://UI/LevelUpUI.tscn" type="PackedScene" id=14]
 [ext_resource path="res://UI/BattleMenuManager.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Battle/BattleCamera.tscn" type="PackedScene" id=16]
+[ext_resource path="res://MuiscAndSounds/a_levelup.wav" type="AudioStream" id=17]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Pan"
@@ -269,3 +270,7 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
+
+[node name="LevelUpSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 17 )
+bus = "Sounds"

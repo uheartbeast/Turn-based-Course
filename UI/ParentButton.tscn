@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://UI/DefaultTheme.tres" type="Theme" id=1]
 [ext_resource path="res://UI/ParentButton.gd" type="Script" id=2]
+[ext_resource path="res://MuiscAndSounds/a_menu_select.wav" type="AudioStream" id=3]
+[ext_resource path="res://MuiscAndSounds/a_menu_move.wav" type="AudioStream" id=4]
 
 [node name="ParentButton" type="Button"]
 margin_right = 38.0
@@ -9,3 +11,14 @@ margin_bottom = 11.0
 theme = ExtResource( 1 )
 align = 0
 script = ExtResource( 2 )
+
+[node name="FocusSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+bus = "Sounds"
+
+[node name="SelectSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+bus = "Sounds"
+
+[connection signal="button_down" from="." to="." method="_on_ParentButton_button_down"]
+[connection signal="focus_entered" from="." to="." method="_on_ParentButton_focus_entered"]

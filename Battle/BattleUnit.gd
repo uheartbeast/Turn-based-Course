@@ -13,9 +13,10 @@ var defend : bool = false setget set_defend
 
 onready var root_position := global_position
 onready var battle_shield := $BattleShield
-onready var impact := $Impact
-onready var impact_defend := $ImpactDefend
-onready var defend_sound := $Defend
+onready var impact_sound := $ImpactSound
+onready var impact_defend := $ImpactDefendSound
+onready var defend_sound := $DefendSound
+onready var heal_sound := $HealSound
 
 func set_stats(value : ClassStats) -> void:
 	stats = value
@@ -75,6 +76,7 @@ func use_item(target: BattleUnit, item: Item) -> void:
 	battle_animations.play("ItemAnticipation")
 	yield(battle_animations, "animation_finished")
 	stats.health += item.heal_amount
+	heal_sound.play()
 	battle_animations.play("ItemRelease")
 	yield(battle_animations, "animation_finished")
 	battle_animations.play("Idle")
@@ -91,7 +93,7 @@ func deal_damage(target: BattleUnit, battle_action : DamageBattleAction) -> void
 		target.defend = false
 		damage = round(damage / 2)
 	else:
-		impact.play()
+		impact_sound.play()
 	target.stats.health -= damage
 
 func take_hit(attacker: BattleUnit) -> void:

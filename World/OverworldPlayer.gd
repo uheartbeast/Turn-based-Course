@@ -44,6 +44,7 @@ func _unhandled_input(event : InputEvent) -> void:
 	
 	if event.is_action_pressed("ui_cancel"):
 		Events.emit_signal("request_show_overworld_menu")
+		get_tree().set_input_as_handled()
 
 func is_moving() -> bool:
 	return velocity != Vector2.ZERO

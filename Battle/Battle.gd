@@ -14,9 +14,10 @@ onready var animation_player := $AnimationPlayer
 onready var timer := $Timer
 onready var player_battle_unit_info := $BattleUI/PlayerBattleUnitInfo
 onready var enemy_battle_unit_info := $BattleUI/EnemyBattleUnitInfo
-onready var level_up_ui = $"%LevelUpUI"
-onready var battle_menu_manager = $"%BattleMenuManager"
-onready var battle_camera = $BattleCamera
+onready var level_up_ui := $"%LevelUpUI"
+onready var battle_menu_manager := $"%BattleMenuManager"
+onready var battle_camera := $BattleCamera
+onready var level_up_sound := $LevelUpSound
 
 onready var center_position : Vector2 = $CenterRoot/CenterPoint.rect_global_position
 onready var enemy_camera_position : Vector2 = get_battle_unit_camera_position(enemy_battle_unit)
@@ -49,6 +50,7 @@ func battle_won() -> void:
 	var previous_level : int = player_battle_unit.stats.level
 	player_battle_unit.stats.experience += 105
 	if player_battle_unit.stats.level > previous_level:
+		level_up_sound.play()
 		yield(level_up_ui.level_up(), "completed")
 	timer.start(0.5)
 	yield(timer, "timeout")

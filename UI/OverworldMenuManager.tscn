@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://UI/OverworldMenuManager.gd" type="Script" id=1]
 [ext_resource path="res://UI/InfoMenu.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://UI/ItemList.tscn" type="PackedScene" id=4]
 [ext_resource path="res://UI/ElizabethStats.tscn" type="PackedScene" id=5]
 [ext_resource path="res://UI/OverworldMenu.tscn" type="PackedScene" id=6]
+[ext_resource path="res://MuiscAndSounds/a_potion.wav" type="AudioStream" id=7]
 
 [node name="OverworldMenuManager" type="MarginContainer"]
 pause_mode = 2
@@ -62,6 +63,10 @@ margin_right = 357.0
 size_flags_vertical = 0
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="HealSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+bus = "Sounds"
 
 [connection signal="option_selected" from="HBoxContainer/OverworldMenu" to="." method="_on_OverworldMenu_option_selected"]
 [connection signal="resource_selected" from="HBoxContainer/VBoxContainer/ItemList" to="." method="_on_ItemList_resource_selected"]

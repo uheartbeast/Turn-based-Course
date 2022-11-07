@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Projectiles/Fireball.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Fireball.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/FlameParticle.png" type="Texture" id=3]
 [ext_resource path="res://MuiscAndSounds/a_fire.wav" type="AudioStream" id=4]
+[ext_resource path="res://MuiscAndSounds/a_fire_impact.wav" type="AudioStream" id=5]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 2 )
@@ -91,5 +92,10 @@ color_ramp = SubResource( 7 )
 
 [node name="FireSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
+autoplay = true
+bus = "Sounds"
+
+[node name="FireImpactSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
 autoplay = true
 bus = "Sounds"

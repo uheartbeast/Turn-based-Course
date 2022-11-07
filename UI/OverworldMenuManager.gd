@@ -12,6 +12,7 @@ onready var item_list := $"%ItemList"
 onready var context_menu := $"%ContextMenu"
 onready var info_menu := $"%InfoMenu"
 onready var timer := $Timer
+onready var heal_sound := $HealSound
 
 var item_resource : Item
 
@@ -24,6 +25,7 @@ func use_healing_item(item: HealingItem) -> void:
 	uiStack.pop()
 	uiStack.push(elizabeth_stats)
 	inventory.remove_item(item)
+	heal_sound.play()
 	stats.health += item.heal_amount
 	yield(elizabeth_stats, "animation_finished")
 	timer.start(0.25)

@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Sprites/Apple.png" type="Texture" id=1]
 [ext_resource path="res://World/ItemPickup.gd" type="Script" id=2]
+[ext_resource path="res://MuiscAndSounds/a_item_pickup.wav" type="AudioStream" id=3]
+[ext_resource path="res://OutliveParent.tscn" type="PackedScene" id=4]
 
 [node name="ItemPickup" type="StaticBody2D"]
 collision_layer = 9
@@ -17,3 +19,12 @@ polygon = PoolVector2Array( -6, 4, -6, -4, -4, -6, 4, -6, 6, -4, 6, 4, 4, 6, -4,
 __meta__ = {
 "_editor_description_": ""
 }
+
+[node name="OutliveParent" parent="." instance=ExtResource( 4 )]
+
+[node name="PickupSound" type="AudioStreamPlayer" parent="OutliveParent"]
+pause_mode = 2
+stream = ExtResource( 3 )
+bus = "Sounds"
+
+[connection signal="finished" from="OutliveParent/PickupSound" to="OutliveParent" method="queue_free"]
