@@ -24,6 +24,7 @@ onready var enemy_camera_position : Vector2 = get_battle_unit_camera_position(en
 onready var player_camera_position : Vector2 = get_battle_unit_camera_position(player_battle_unit)
 
 func _ready() -> void:
+	MusicPlayer.push_song(MusicPlayer.battle_music)
 	var encounter_class : ClassStats = ReferenceStash.encounter_class
 	if encounter_class is ClassStats:
 		enemy_battle_unit.stats = encounter_class.duplicate()
@@ -56,6 +57,7 @@ func battle_won() -> void:
 	yield(timer, "timeout")
 
 func exit_battle() -> void:
+	MusicPlayer.pop_song()
 	yield(Transition.fade_to_color(Color.black), "completed")
 	Transition.fade_from_color(Color.black)
 	SceneStack.pop()

@@ -5,6 +5,7 @@
 [ext_resource path="res://MuiscAndSounds/a_town_music.mp3" type="AudioStream" id=3]
 
 [node name="MusicPlayer" type="Node"]
+pause_mode = 2
 script = ExtResource( 1 )
 
 [node name="TownMusic" type="AudioStreamPlayer" parent="."]
