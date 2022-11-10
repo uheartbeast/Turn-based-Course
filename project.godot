@@ -214,6 +214,7 @@ LevelSwapper="*res://LevelSwapper.gd"
 WorldStash="*res://WorldStash.gd"
 Transition="*res://UI/Transition.tscn"
 MusicPlayer="*res://MuiscAndSounds/MusicPlayer.tscn"
+SaveManager="*res://SaveManager.gd"
 
 [display]
 

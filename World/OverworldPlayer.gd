@@ -21,6 +21,8 @@ func _init() -> void:
 
 func _ready() -> void:
 	interactable_detector.rotation = Vector2.DOWN.angle()
+	if not LevelSwapper.player is KinematicBody2D:
+		ReferenceStash.player = self
 
 func _physics_process(delta : float) -> void:
 	var input_vector = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")

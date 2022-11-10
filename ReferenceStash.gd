@@ -8,3 +8,5 @@ var inventory : Inventory = load("res://Items/Inventory.tres")
 
 var random_encounters := []
 var encounter_class : ClassStats
+
+var player : KinematicBody2D
