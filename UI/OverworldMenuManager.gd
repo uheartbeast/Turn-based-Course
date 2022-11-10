@@ -52,6 +52,15 @@ func _on_OverworldMenu_option_selected(option : int) -> void:
 			uiStack.push(elizabeth_stats)
 		OverworldMenu.ITEMS:
 			uiStack.push(item_list)
+		OverworldMenu.SAVE:
+			get_tree().set_input_as_handled()
+			SaveManager.save_game()
+			uiStack.pop()
+			Events.emit_signal("request_show_message", "Game save!")
+		OverworldMenu.LOAD:
+			get_tree().set_input_as_handled()
+			get_tree().paused = false
+			SaveManager.load_game()
 		OverworldMenu.EXIT:
 			uiStack.pop()
 			get_tree().paused = false

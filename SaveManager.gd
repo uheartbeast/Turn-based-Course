@@ -63,7 +63,7 @@ func load_game() -> void:
 		ReferenceStash.player = player
 	
 	var player = ReferenceStash.player
-	player.last_door_connect = -1
+	player.last_door_connection = -1
 	yield(Transition.fade_to_color(Color.black), "completed")
 	LevelSwapper.level_swap(player, load_data.current_scene)
 	player.global_position = Vector2(load_data.player.x, load_data.player.y)

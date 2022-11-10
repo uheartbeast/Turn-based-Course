@@ -11,13 +11,13 @@ margin_bottom = 14.0
 rect_min_size = Vector2( 48, 0 )
 theme = ExtResource( 1 )
 script = ExtResource( 2 )
-focus_nodes = [ NodePath("MarginContainer/VBoxContainer/StatsButton"), NodePath("MarginContainer/VBoxContainer/ItemsButton"), NodePath("MarginContainer/VBoxContainer/ExitButton") ]
+focus_nodes = [ NodePath("MarginContainer/VBoxContainer/StatsButton"), NodePath("MarginContainer/VBoxContainer/ItemsButton"), NodePath("MarginContainer/VBoxContainer/SaveButton"), NodePath("MarginContainer/VBoxContainer/LoadButton"), NodePath("MarginContainer/VBoxContainer/ExitButton") ]
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 margin_left = 4.0
 margin_top = 4.0
 margin_right = 44.0
-margin_bottom = 47.0
+margin_bottom = 71.0
 custom_constants/margin_right = 4
 custom_constants/margin_top = 4
 custom_constants/margin_left = 6
@@ -27,7 +27,7 @@ custom_constants/margin_bottom = 4
 margin_left = 6.0
 margin_top = 4.0
 margin_right = 36.0
-margin_bottom = 39.0
+margin_bottom = 63.0
 custom_constants/separation = 1
 
 [node name="StatsButton" parent="MarginContainer/VBoxContainer" instance=ExtResource( 3 )]
@@ -40,12 +40,26 @@ margin_right = 30.0
 margin_bottom = 23.0
 text = "Items"
 
-[node name="ExitButton" parent="MarginContainer/VBoxContainer" instance=ExtResource( 3 )]
+[node name="SaveButton" parent="MarginContainer/VBoxContainer" instance=ExtResource( 3 )]
 margin_top = 24.0
 margin_right = 30.0
 margin_bottom = 35.0
+text = "Save"
+
+[node name="LoadButton" parent="MarginContainer/VBoxContainer" instance=ExtResource( 3 )]
+margin_top = 36.0
+margin_right = 30.0
+margin_bottom = 47.0
+text = "Load"
+
+[node name="ExitButton" parent="MarginContainer/VBoxContainer" instance=ExtResource( 3 )]
+margin_top = 48.0
+margin_right = 30.0
+margin_bottom = 59.0
 text = "Exit"
 
 [connection signal="button_down" from="MarginContainer/VBoxContainer/StatsButton" to="." method="_on_StatsButton_button_down"]
 [connection signal="button_down" from="MarginContainer/VBoxContainer/ItemsButton" to="." method="_on_ItemsButton_button_down"]
+[connection signal="button_down" from="MarginContainer/VBoxContainer/SaveButton" to="." method="_on_SaveButton_button_down"]
+[connection signal="button_down" from="MarginContainer/VBoxContainer/LoadButton" to="." method="_on_LoadButton_button_down"]
 [connection signal="button_down" from="MarginContainer/VBoxContainer/ExitButton" to="." method="_on_ExitButton_button_down"]
