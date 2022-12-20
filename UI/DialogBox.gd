@@ -34,8 +34,7 @@ func type_dialog(bbcode : String, character : Character) -> void:
 	get_tree().paused = true
 	show()
 	textbox.bbcode_text = bbcode
-	yield(get_tree(), "idle_frame") # Must wait for get_total_character_count to be accurate
-	var total_characters : int = textbox.get_total_character_count()
+	var total_characters : int = textbox.text.length()
 	var duration : float = total_characters * CHARACTER_DISPLAY_DURATION
 	typer = create_tween()
 	typer.tween_method(self, "set_visible_characters", 0, total_characters, duration)
@@ -45,7 +44,7 @@ func type_dialog(bbcode : String, character : Character) -> void:
 func set_visible_characters(index : int) -> void:
 	var is_new_character : bool = index > textbox.visible_characters
 	textbox.visible_characters = index
-	if is_new_character and index < textbox.get_total_character_count():
+	if is_new_character and index < textbox.text.length():
 		var character : String = textbox.text.substr(textbox.visible_characters, 1)
 		voice.pitch_scale = rand_range(pitch - 0.1, pitch + 0.1)
 		voice.play()
