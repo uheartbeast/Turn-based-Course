@@ -46,6 +46,7 @@ func get_battle_unit_camera_position(battle_unit : BattleUnit) -> Vector2:
 	return final_position
 
 func battle_won() -> void:
+	ReferenceStash.inventory.add_item(load("res://Items/AppleItem.tres"))
 	timer.start(0.5)
 	yield(timer, "timeout")
 	var previous_level : int = player_battle_unit.stats.level
